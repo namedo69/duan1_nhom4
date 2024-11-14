@@ -58,7 +58,7 @@
                 <?php foreach ($getNewProduct as $item) { ?>
                 <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                     <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="asset/admin/img/<?= $item['image'] ?>">
+                        <div class="featured__item__pic set-bg" data-setbg="asset/image/<?= $item['image'] ?>">
                             <ul class="featured__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -108,7 +108,7 @@
                                 <?php foreach ($getLatestProduct as $item) { ?>
                                 <a href="#" class="latest-product__item">
                                     <div class="latest-product__item__pic">
-                                        <img src="asset/admin/img/<?= $item['image'] ?>" alt="">
+                                        <img src="asset/image/<?= $item['image'] ?>" alt="">
                                     </div>
                                     <div class="latest-product__item__text">
                                         <h6><?= $item['name'] ?></h6>
@@ -128,7 +128,7 @@
                                 <?php foreach ($getProductByView as $item){ ?>
                                 <a href="#" class="latest-product__item">
                                     <div class="latest-product__item__pic">
-                                        <img src="asset/admin/img/<?= $item['image'] ?>" alt="">
+                                        <img src="asset/image/<?= $item['image'] ?>" alt="">
                                     </div>
                                     <div class="latest-product__item__text">
                                         <h6><?= $item['name'] ?></h6>
@@ -147,7 +147,7 @@
                             <div class="latest-prdouct__slider__item">
                                 <a href="#" class="latest-product__item">
                                     <div class="latest-product__item__pic">
-                                        <img src="asset/admin/img/sach10.webp" alt="">
+                                        <img src="asset/image/sach10.webp" alt="">
                                     </div>
                                     <div class="latest-product__item__text">
                                         <h6>Bí kip không làm mà cũng có ăn </h6>
@@ -156,7 +156,7 @@
                                 </a>
                                 <a href="#" class="latest-product__item">
                                     <div class="latest-product__item__pic">
-                                        <img src="asset/admin/img/sach12.webp" alt="">
+                                        <img src="asset/image/sach12.webp" alt="">
                                     </div>
                                     <div class="latest-product__item__text">
                                         <h6>Olodo và những người bạn</h6>
@@ -165,7 +165,7 @@
                                 </a>
                                 <a href="#" class="latest-product__item">
                                     <div class="latest-product__item__pic">
-                                        <img src="asset/admin/img/sach13.webp" alt="">
+                                        <img src="asset/image/sach13.webp" alt="">
                                     </div>
                                     <div class="latest-product__item__text">
                                         <h6>Dark nhân tâm</h6>
@@ -174,7 +174,7 @@
                                 </a>
                                 <a href="#" class="latest-product__item">
                                     <div class="latest-product__item__pic">
-                                        <img src="asset/admin/img/sach14.webp" alt="">
+                                        <img src="asset/image/sach14.webp" alt="">
                                     </div>
                                     <div class="latest-product__item__text">
                                         <h6>Khò khò khò</h6>
@@ -183,7 +183,7 @@
                                 </a>
                                 <a href="#" class="latest-product__item">
                                     <div class="latest-product__item__pic">
-                                        <img src="asset/admin/img/sach15.webp" alt="">
+                                        <img src="asset/image/sach15.webp" alt="">
                                     </div>
                                     <div class="latest-product__item__text">
                                         <h6>Anh trai Say Gex</h6>
