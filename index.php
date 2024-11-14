@@ -1,3 +1,4 @@
+
 <?php
 
 include_once 'config.php';
@@ -11,3 +12,4 @@ if (isset($_GET['url'])) {
 } else {
     header('location: ?url=page&act=home');
 }
+
