@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./asset/css/bootstrap.css">
-
+    <link rel="stylesheet" href="./asset/vendors/simple-datatables/style.css">
     <link rel="stylesheet" href="./asset/vendors/iconly/bold.css">
 
     <link rel="stylesheet" href="./asset/vendors/perfect-scrollbar/perfect-scrollbar.css">
@@ -36,17 +36,17 @@
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
 
-                        <li class="sidebar-item active ">
+                        <li class="sidebar-item  ">
                             <a href="index.html" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
 
-                        <li class="sidebar-item  ">
-                            <a href="table-datatable.html" class='sidebar-link'>
+                        <li class="sidebar-item  active">
+                            <a href="index.php?action=listdanhmuc" class='sidebar-link'>
                                 <i class="bi bi-file-earmark-spreadsheet-fill"></i>
-                                <span>Datatable</span>
+                                <span>Danh mục</span>
                             </a>
                         </li>
 

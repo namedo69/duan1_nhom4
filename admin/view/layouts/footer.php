@@ -18,6 +18,12 @@
     <script src="./asset/js/pages/dashboard.js"></script>
 
     <script src="./asset/js/main.js"></script>
+    <script src="./asset/vendors/simple-datatables/simple-datatables.js"></script>
+    <script>
+        // Simple Datatable
+        let table1 = document.querySelector('#table1');
+        let dataTable = new simpleDatatables.DataTable(table1);
+    </script>
 </body>
 
 </html>
