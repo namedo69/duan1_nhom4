@@ -41,7 +41,7 @@ include_once("./view/layouts/header.php");
                                     <td><?= $value['name'] ?></td>
                                     <td><?= $value['price'] ?></td>
                                     <td class="col-12"><?= $value['description'] ?></td>
-                                    <td><img src="<?= $value['image'] ?>" alt="<?= $value['name'] ?>"></td>
+                                    <td><img src="../asset/image/<?= $value['image'] ?>" alt="<?= $value['name'] ?>" style="width: 100px; height: auto;"></td>
                                     <td><?= $value['view'] ?></td>
                                     <td><?= $value['category_id'] ?></td>
                                     <td>
