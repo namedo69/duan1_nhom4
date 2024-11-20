@@ -18,17 +18,18 @@ include_once("./view/layouts/header.php");
         </div>
         <section class="section">
             <div class="card">
+            <a class="btn btn-primary" href="index.php?action=addsanpham">Thêm sản phẩm</a>
                 <div class="card-body">
                     <table class="table table-striped" id="table1">
                         <thead>
                             <tr>
-                                <th style="width: 200px;" class="col-2">ID</th>
-                                <th>Tên</th>
-                                <th>Giá</th>
-                                <th class="col-12">Mô tả</th>
-                                <th>Ảnh sản phẩm</th>
-                                <th>Số lượt xem</th>
-                                <th>Id danh mục</th>
+                                <th class="col-2">ID</th>
+                                <th class="col-2">Tên</th>
+                                <th class="col-2">Giá</th>
+                                <th class="col-2">Mô tả</th>
+                                <th class="col-2">Ảnh sản phẩm</th>
+                                <th class="col-2">Số lượt xem</th>
+                                <th class="col-2">Id danh mục</th>
                                 <th class="col-2">Action</th>
                             </tr>
                         </thead>
@@ -67,7 +68,6 @@ include_once("./view/layouts/header.php");
                         </tbody>
                     </table>
                 </div>
-                <a class="btn btn-primary" href="index.php?action=addsanpham">Thêm sản phẩm</a>
             </div>
 
         </section>
