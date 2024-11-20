@@ -37,7 +37,7 @@
                         <li class="sidebar-title">Menu</li>
 
                         <li class="sidebar-item  ">
-                            <a href="index.html" class='sidebar-link'>
+                            <a href="http://localhost/duan1_nhom4/admin/" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Dashboard</span>
                             </a>
@@ -47,6 +47,13 @@
                             <a href="index.php?action=listdanhmuc" class='sidebar-link'>
                                 <i class="bi bi-file-earmark-spreadsheet-fill"></i>
                                 <span>Danh mục</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="index.php?action=listsanpham" class='sidebar-link'>
+                                <i class="bi bi-file-earmark-spreadsheet-fill"></i>
+                                <span>Sản phẩm</span>
                             </a>
                         </li>
 
