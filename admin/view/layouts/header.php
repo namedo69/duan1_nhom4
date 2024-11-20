@@ -6,19 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Mazer Admin Dashboard</title>
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS Files -->
     <link rel="stylesheet" href="./asset/css/bootstrap.css">
     <link rel="stylesheet" href="./asset/vendors/simple-datatables/style.css">
     <link rel="stylesheet" href="./asset/vendors/iconly/bold.css">
-
     <link rel="stylesheet" href="./asset/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="./asset/vendors/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="./asset/css/app.css">
     <link rel="shortcut icon" href="./asset/images/favicon.svg" type="image/x-icon">
+
+    <!-- Custom CSS -->
+    <style>
+        .sidebar-item.active a {
+            background-color: #007bff; /* Màu nền nổi bật */
+            color: white; /* Màu chữ */
+        }
+
+        .sidebar-item a {
+            color: #6c757d; /* Màu chữ mặc định */
+            text-decoration: none;
+        }
+
+        .sidebar-item.active a:hover {
+            color: white;
+            background-color: #0056b3; /* Màu khi hover */
+        }
+    </style>
 </head>
 
 <body>
+    <?php
+    // Lấy hành động hiện tại từ URL
+    $currentAction = isset($_GET['action']) ? $_GET['action'] : '';
+    ?>
     <div id="app">
         <div id="sidebar" class="active">
             <div class="sidebar-wrapper active">
@@ -36,24 +60,31 @@
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
 
-                        <li class="sidebar-item  ">
+                        <li class="sidebar-item <?php echo $currentAction === '' ? 'active' : ''; ?>">
                             <a href="http://localhost/duan1_nhom4/admin/" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
 
-                        <li class="sidebar-item  active">
+                        <li class="sidebar-item <?php echo $currentAction === 'listdanhmuc' ? 'active' : ''; ?>">
                             <a href="index.php?action=listdanhmuc" class='sidebar-link'>
                                 <i class="bi bi-file-earmark-spreadsheet-fill"></i>
                                 <span>Danh mục</span>
                             </a>
                         </li>
 
-                        <li class="sidebar-item">
+                        <li class="sidebar-item <?php echo $currentAction === 'listsanpham' ? 'active' : ''; ?>">
                             <a href="index.php?action=listsanpham" class='sidebar-link'>
                                 <i class="bi bi-file-earmark-spreadsheet-fill"></i>
                                 <span>Sản phẩm</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item <?php echo $currentAction === 'listcomment' ? 'active' : ''; ?>">
+                            <a href="index.php?action=listcomment" class='sidebar-link'>
+                                <i class="bi bi-file-earmark-spreadsheet-fill"></i>
+                                <span>Bình luận</span>
                             </a>
                         </li>
 
@@ -62,3 +93,7 @@
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
             </div>
         </div>
+    </div>
+</body>
+
+</html>
