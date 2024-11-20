@@ -4,7 +4,6 @@ include_once './model/sanpham.php';
 if (!isset($_POST['edit']) && isset($_GET['id'])) {
     $sanphamInfo = getSanPhamById($_GET['id']);
     include_once './view/sanpham/edit.php';
-    var_dump($sanphamInfo);
 } else {
     $name = $_POST['name'];
     $id = $_POST['id'];
