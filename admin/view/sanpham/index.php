@@ -61,7 +61,39 @@ include_once("./view/layouts/header.php");
                             ?>
                             <a class="btn btn-danger" href="index.php?action=deletesanpham&id=<?=$value['product_id']?>&status=0">Ẩn</a>
                             <?php
+ luong/update_sanpham+database
                         } else {
+
+                            foreach ($listSanPham as $key => $value) {
+                                ?>
+                                <tr>
+                                    <td><?= $value['product_id'] ?></td>
+                                    <td><?= $value['name'] ?></td>
+                                    <td><?= $value['price'] ?></td>
+                                    <td class="col-12"><?= $value['description'] ?></td>
+                                    <td><img src="../asset/image/<?= $value['image'] ?>" alt="<?= $value['name'] ?>" style="width: 100px; height: auto;"></td>
+                                    <td><?= $value['view'] ?></td>
+                                    <td><?= $value['category_id'] ?></td>
+                                    <td>
+                                        <div class="d-flex">
+                                            <a class="btn btn-secondary" href="index.php?action=editsanpham&id=<?=$value['product_id']?>">Sửa</a>
+                                            <?php
+                                            if ($value['status'] == 1) {
+                                                ?>
+                                                <a class="btn btn-danger" href="index.php?action=deletesanpham&id=<?=$value['product_id']?>&status=0">Ẩn</a>
+                                                <?php
+                                            } else {
+                                                ?>
+                                                <a class="btn btn-danger" href="index.php?action=deletesanpham&id=<?=$value['product_id']?>&status=1">Hiện</a>
+                                                <?php
+                                            }
+                                            ?>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <?php
+                            }
+ main
                             ?>
                             <a class="btn btn-danger" href="index.php?action=deletesanpham&id=<?=$value['product_id']?>&status=1">Hiện</a>
                             <?php
