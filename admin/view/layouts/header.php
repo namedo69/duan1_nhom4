@@ -67,14 +67,26 @@
                             </a>
                         </li>
 
-                        <li class="sidebar-item <?php echo $currentAction === 'listdanhmuc' ? 'active' : ''; ?>">
+                        <li class="sidebar-item <?php
+if ($currentAction === 'listdanhmuc' || $currentAction === 'adddanhmuc' || $currentAction === 'editdanhmuc') {
+    echo 'active';
+} else {
+    echo '';
+}
+?>">
                             <a href="index.php?action=listdanhmuc" class='sidebar-link'>
                                 <i class="bi bi-file-earmark-spreadsheet-fill"></i>
                                 <span>Danh mục</span>
                             </a>
                         </li>
 
-                        <li class="sidebar-item <?php echo $currentAction === 'listsanpham' ? 'active' : ''; ?>">
+                        <li class="sidebar-item <?php
+if ($currentAction === 'listsanpham' || $currentAction === 'addsanpham' || $currentAction === 'editsanpham') {
+    echo 'active';
+} else {
+    echo '';
+}
+?>">
                             <a href="index.php?action=listsanpham" class='sidebar-link'>
                                 <i class="bi bi-file-earmark-spreadsheet-fill"></i>
                                 <span>Sản phẩm</span>
@@ -85,6 +97,26 @@
                             <a href="index.php?action=listcomment" class='sidebar-link'>
                                 <i class="bi bi-file-earmark-spreadsheet-fill"></i>
                                 <span>Bình luận</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item <?php echo $currentAction === 'listhoadon' ? 'active' : ''; ?>">
+                            <a href="index.php?action=listhoadon" class='sidebar-link'>
+                                <i class="bi bi-file-earmark-spreadsheet-fill"></i>
+                                <span>Hoá đơn</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item <?php
+if ($currentAction === 'listclient' || $currentAction === 'addclient' || $currentAction === 'editclient') {
+    echo 'active';
+} else {
+    echo '';
+}
+?>">
+                            <a href="index.php?action=listclient" class='sidebar-link'>
+                                <i class="bi bi-file-earmark-spreadsheet-fill"></i>
+                                <span>Người dùng</span>
                             </a>
                         </li>
 

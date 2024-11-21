@@ -1,5 +1,6 @@
 <?php
-
+date_default_timezone_set('Asia/Ho_Chi_Minh');
+$base_url = "http://" . $_SERVER['SERVER_NAME'] . dirname($_SERVER["REQUEST_URI"] . '?') . '/';
 if (isset($_GET['action']) && $_GET['action'] != '') {
     $action = $_GET['action'];
     switch ($action) {
@@ -39,7 +40,24 @@ if (isset($_GET['action']) && $_GET['action'] != '') {
             include_once 'controller/comment/delete.php';
             break;
     
+            // client
+            case "listclient":
+                include_once 'controller/client/index.php';
+                break;
+            case "addclient":
+                include_once 'controller/client/add.php';
+                break;
+            case "editclient":
+                include_once 'controller/client/edit.php';
+                break;
+            case "deleteclient":
+                include_once 'controller/client/delete.php';
+                break;
 
+            // order
+             case "listhoadon":
+                include_once 'controller/hoadon/index.php';
+                break;
     }
 } else {
     include_once 'controller/dashboard/index.php';

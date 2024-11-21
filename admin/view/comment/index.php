@@ -26,8 +26,6 @@ include_once("./view/layouts/header.php");
         </div>
         <section class="section">
             <div class="card">
-               
-                <a class="btn btn-primary" href="">Thêm bình luận</a>
                 <div class="card-body">
                     <table class="table table-striped" id="table1">
                         <thead>
