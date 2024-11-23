@@ -6,27 +6,19 @@ function listHoaDon()
     $sql = 'select * from bill';
     return pdo_query($sql);
 }
-
-function addHoaDon($name)
+function changeStatusHoaDon($id, $status)
 {
-    $sql = "insert into order_admin_admin (name) values ('$name')";
+    $sql = "update bill set status = '$status' where id='$id'";
     pdo_execute($sql);
 }
-
 function getHoaDonById($id)
 {
-    $sql = "select * from bill where order_admin_id=$id";
+    $sql = "select * from bill where id = $id";
     return pdo_query_one($sql);
 }
 
-function changeStatus($id, $status)
+function getAllChiTietDonHang($id)
 {
-    $sql = "update product set status = '$status' where product_id='$id'";
-    pdo_execute($sql);
-}
-
-function changeStatusHoaDon($id, $status)
-{
-    $sql = "update bill set status = '$status' where order_admin_id='$id'";
-    pdo_execute($sql);
+    $sql = "select * from product where product_id = $id";
+    return pdo_query($sql);
 }

@@ -61,7 +61,6 @@ include_once("./view/layouts/header.php");
                             ?>
                             <a class="btn btn-danger" href="index.php?action=deletesanpham&id=<?=$value['product_id']?>&status=0">Ẩn</a>
                             <?php
- luong/update_sanpham+database
                         } else {
 
                             foreach ($listSanPham as $key => $value) {
@@ -93,7 +92,6 @@ include_once("./view/layouts/header.php");
                                 </tr>
                                 <?php
                             }
- main
                             ?>
                             <a class="btn btn-danger" href="index.php?action=deletesanpham&id=<?=$value['product_id']?>&status=1">Hiện</a>
                             <?php

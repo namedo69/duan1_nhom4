@@ -4,7 +4,7 @@ include_once './model/danhmuc.php';
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $status = $_GET['status'];
-    changeStatus($id, $status);
+    changeStatusDanhMuc($id, $status);
 
     if ($status == 0) {
         $script = "<script> 
