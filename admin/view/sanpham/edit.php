@@ -28,15 +28,15 @@ include_once("./view/layouts/header.php");
             <div class="card">
                 <div class="card-body">
                     <!-- Form chỉnh sửa sản phẩm -->
-                    <form action="index.php?action=editsanpham" method="post" onsubmit="handlePlaceholderValues(this)">
+                    <form action="index.php?action=editsanpham" method="post" onsubmit="handlePlaceholderValues(this)" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="sanpham_name" class="form-label">Tên sản phẩm</label>
                             <input type="text" 
                                    placeholder="<?= $sanphamInfo['name'] ?>" 
                                    class="form-control" 
                                    name="name" 
-                                   id="sanpham_name"
-                                   value="<?= $sanphamInfo['name'] ?>">
+                                   id="sanpham_name">
+                                  
                         </div>
                         <div class="mb-3">
                             <label for="sanpham_price" class="form-label">Giá sản phẩm</label>
@@ -44,8 +44,8 @@ include_once("./view/layouts/header.php");
                                    placeholder="<?= $sanphamInfo['price'] ?>" 
                                    class="form-control" 
                                    name="price" 
-                                   id="sanpham_price"
-                                   value="<?= $sanphamInfo['price'] ?>">
+                                   id="sanpham_price">
+                                  
                         </div>
                         <div class="mb-3">
                             <label for="sanpham_description" class="form-label">Mô tả sản phẩm</label>
@@ -53,13 +53,12 @@ include_once("./view/layouts/header.php");
                                    placeholder="<?= $sanphamInfo['description'] ?>" 
                                    class="form-control" 
                                    name="description" 
-                                   id="sanpham_description"
-                                   value="<?= $sanphamInfo['description'] ?>">
+                                   id="sanpham_description">
                         </div>
                         <div class="mb-3">
                             <label for="sanpham_image" class="form-label">Ảnh sản phẩm</label>
                             <div>
-                                <img src="<?= $base_url . 'upload/' .'product/'. $sanphamInfo['image'] ?>" width="150px" alt="<?= $sanphamInfo['name'] ?>" style="max-width: 150px;">
+                                <img src="<?= $base_url . 'upload/product/' . $sanphamInfo['image'] ?>" width="150px" alt="<?= $sanphamInfo['name'] ?>" style="max-width: 150px;">
                             </div>
                             <input type="file" 
                                    class="form-control" 

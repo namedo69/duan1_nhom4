@@ -27,33 +27,35 @@ include_once("./view/layouts/header.php");
         <section class="section">
             <div class="card">
                 <div class="card-body">
-                    <form action="index.php?action=editclient" method="post">
+                    <form action="index.php?action=editclient" method="post" enctype="multipart/form-data" onsubmit="handlePlaceholderValues(this)">
                         <div class="mb-3">
-                            <label for="client" class="form-label">Username</label>
-                            <input type="text" placeholder="<?= $clientInfo['username'] ?>" class="form-control" name="username" id="client">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" placeholder="<?= $clientInfo['username'] ?>" class="form-control" name="username" id="username">
                         </div>
                         <div class="mb-3">
-                            <label for="client" class="form-label">Password</label>
-                            <input type="text" placeholder="<?= $clientInfo['password'] ?>" class="form-control" name="password" id="client">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" placeholder="<?= $clientInfo['password'] ?>" class="form-control" name="password" id="password">
                         </div>
                         <div class="mb-3">
-                            <label for="client" class="form-label">Name</label>
-                            <input type="text" placeholder="<?= $clientInfo['name'] ?>" class="form-control" name="name" id="client">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="client" class="form-label">Email</label>
-                            <input type="text" placeholder="<?= $clientInfo['email'] ?>" class="form-control" name="email" id="client">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" placeholder="<?= $clientInfo['name'] ?>" class="form-control" name="name" id="name">
                         </div>
 
                         <div class="mb-3">
-                            <label for="client" class="form-label">Avata</label>
-                            <td><img src="<?= $clientInfo['image'] ?>" alt="<?= $clientInfo['name'] ?>"></td>
-                            <input type="file" class="form-control" name="image" id="client">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" placeholder="<?= $clientInfo['email'] ?>" class="form-control" name="email" id="email">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Avata</label>
+                            <div>
+                                <img src="<?= $base_url . 'upload/client/' .'client/'. $clientInfo['image'] ?>" width="150px" alt="Avatar">
+                            </div>
+                            <input type="file" class="form-control" name="image" id="image">
                         </div>
                         <div class="mb-3">
-                            <label for="client" class="form-label">Role</label>
-                            <input type="text" placeholder="<?= $clientInfo['role'] ?>" class="form-control" name="role" id="client">
+                            <label for="role" class="form-label">Role</label>
+                            <input type="text" placeholder="<?= $clientInfo['role'] ?>" class="form-control" name="role" id="role">
                         </div>
                         <input type="hidden" value="<?= $clientInfo['client_id'] ?>" name="id">
                         <button type="submit" name="edit" class="btn btn-primary">Sửa</button>
@@ -66,3 +68,47 @@ include_once("./view/layouts/header.php");
     <?php
     include_once("./view/layouts/footer.php");
     ?>
+
+    <!-- JavaScript xử lý -->
+    <script>
+        function handlePlaceholderValues(form) {
+            const inputs = form.querySelectorAll('input[type="text"], input[type="password"], input[type="email"]');
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    input.value = input.placeholder; // Gán giá trị placeholder nếu trống
+                }
+            });
+        }
+
+        document.querySelector("form").addEventListener("submit", function (e) {
+        // Lấy giá trị các input
+        const username = document.querySelector("input[name='username']").value.trim();
+        const password = document.querySelector("input[name='password']").value.trim();
+        const name = document.querySelector("input[name='name']").value.trim();
+
+        let errorMessage = '';
+
+        // Validate tên người dùng (không được rỗng và ít nhất 5 ký tự)
+        if (username.length < 5) {
+            errorMessage += "- Tên người dùng phải có ít nhất 5 ký tự.\n";
+        }
+
+        // Validate mật khẩu (phải có ít nhất 6 ký tự và phải bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt)
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*.,{}()'"~])[A-Za-z\d!@#$%^&*.,{}()'"~]{6,}$/;
+        if (!passwordRegex.test(password)) {
+            errorMessage += "- Mật khẩu phải có ít nhất 6 ký tự, bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt.\n";
+        }
+
+        // Validate tên (không được rỗng)
+        if (username.length < 5) {
+            errorMessage += "- Tên phải có ít nhất 5 ký tự.\n";
+        }
+
+        // Nếu có lỗi, chặn form gửi đi và hiển thị thông báo
+        if (errorMessage) {
+            e.preventDefault();
+            alert("Vui lòng thực hiện các yêu cầu sau:\n" + errorMessage);
+        }
+    });
+    </script>
+</div>

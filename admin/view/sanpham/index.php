@@ -50,7 +50,7 @@ include_once("./view/layouts/header.php");
                 <td><?= $value['name'] ?></td>
                 <td><?= $value['price'] ?></td>
                 <td class="col-12"><?= $value['description'] ?></td>
-                <td><img src="<?= $base_url . 'upload/' .'product/'. $value['image'] ?>" width="150px" alt="<?= $value['name'] ?>"></td>
+                <td><img src="<?= $base_url . 'upload/product/'. $value['image'] ?>" width="150px" alt="<?= $value['name'] ?>"></td>
                 <td><?= $value['view'] ?></td>
                 <td><?= $categoryName ?></td> <!-- Hiển thị tên danh mục -->
                 <td>

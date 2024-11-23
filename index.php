@@ -14,6 +14,9 @@ if (isset($_GET['url'])) {
         case 'user':
             include_once 'controller/UserController.php';
             break;
+        case 'category':
+            include_once 'controller/CategoryController.php';
+            break;
     }
 } else {
     header('location: ?url=page&act=home');

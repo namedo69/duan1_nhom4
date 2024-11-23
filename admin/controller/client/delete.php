@@ -4,7 +4,7 @@ include_once './model/client.php';
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $status = $_GET['status'];
-    changeStatus($id, $status);
+    changeStatusNguoiDung($id, $status);
 
     if ($status == 0) {
         $script = "<script> 

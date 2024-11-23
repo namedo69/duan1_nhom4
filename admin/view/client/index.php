@@ -43,7 +43,7 @@ include_once("./view/layouts/header.php");
                                     <td><?= $value['password'] ?></td>
                                     <td><?= $value['name'] ?></td>
                                     <td><?= $value['email'] ?></td>
-                                    <td><img src="<?= $value['image'] ?>" alt="<?= $value['name'] ?>"></td>
+                                    <td><img src="<?= $base_url . 'upload/client/'. $value['image'] ?>" width="150px" alt="<?= $value['name'] ?>"></td>
                                     <td><?= $value['role'] ?></td>
                                     <td>
                                         <div class="d-flex">
