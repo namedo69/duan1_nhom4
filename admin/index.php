@@ -58,11 +58,11 @@ if (isset($_GET['action']) && $_GET['action'] != '') {
             case "listhoadon":
                 include_once 'controller/hoadon/index.php';
                 break;
-            case "trangthaihoadon":
-                include_once 'controller/hoadon/edit.php';
-                break;
             case "cthoadon":
                 include_once 'controller/hoadon/cthoadon.php';
+                break;
+            case "capnhathoadon":
+                include_once 'controller/hoadon/capnhat.php';
                 break;
     }
 } else {

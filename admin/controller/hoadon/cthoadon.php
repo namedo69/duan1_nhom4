@@ -5,8 +5,10 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $hoaDonChiTiet = getHoaDonById($id);
     $hoaDonInfo = getAllChiTietDonHang($id);
-    foreach ($hoaDonInfo as $key => $item) {
-        $sanPhamInfo = listSanPham($item['product_id']);
+    foreach ($hoaDonInfo as $key => $value) {
+        $sanPhamInfo = getSanPhamById($value['product_id']);
+        $hoaDonInfo[$key]['name'] = $sanPhamInfo['name'];
+        $hoaDonInfo[$key]['image'] = $sanPhamInfo['image'];
     }
     include_once "./view/hoadon/cthoadon.php";
 }

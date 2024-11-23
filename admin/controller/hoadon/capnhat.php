@@ -1,4 +1,3 @@
-
 <?php
 include_once "./model/hoadon.php";
 if (isset($_POST['status']) && isset($_POST['id'])) {
