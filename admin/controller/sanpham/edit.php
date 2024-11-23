@@ -14,10 +14,18 @@ if (!isset($_POST['edit']) && isset($_GET['id'])) {
     $fileName = null;
     if (isset($_FILES['image']) && $_FILES['image']['name'] != '') {
         $filePath = 'upload/product/';
-        $fileName = date("Y_m_d_H_i_s") . $_FILES['image']['name'];
-        // Xóa file cũ nếu có. Gợi ý if (file_exist())
-        move_uploaded_file($_FILES['image']['tmp_name'], $filePath . $fileName);
+        $newFileName = date("Y_m_d_H_i_s") . $_FILES['image']['name'];
+        $newFilePath = $filePath . $newFileName;
+    
+        // Kiểm tra và xóa ảnh cũ nếu có
+        if (file_exists($newFilePath)) {
+            unlink($newFilePath); // Xóa ảnh cũ
+        }
+    
+        // Di chuyển ảnh mới vào thư mục
+        move_uploaded_file($_FILES['image']['tmp_name'], $newFilePath);
     }
+    
     editSanPham($id, $name, $fileName,  $price, $description ,$category_id);
     $script = "<script> 
     alert('Sửa danh mục thành công!');

@@ -19,6 +19,11 @@ function getHoaDonById($id)
 
 function getAllChiTietDonHang($id)
 {
-    $sql = "select * from product where product_id = $id";
+    $sql = "select * from bill_detail where bill_id = $id";
     return pdo_query($sql);
+}
+function changeStatus($id, $status)
+{
+    $sql = "update bill set status = '$status' where id ='$id'";
+    pdo_execute($sql);
 }
