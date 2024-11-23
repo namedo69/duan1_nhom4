@@ -49,7 +49,7 @@ include_once("./view/layouts/header.php");
                         <div class="mb-3">
                             <label for="image" class="form-label">Avata</label>
                             <div>
-                                <img src="<?= $base_url . 'upload/client/' .'client/'. $clientInfo['image'] ?>" width="150px" alt="Avatar">
+                                <img src="<?= $base_url . 'upload/client/'.$clientInfo['image'] ?>" width="150px" alt="Avatar">
                             </div>
                             <input type="file" class="form-control" name="image" id="image">
                         </div>
