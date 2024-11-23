@@ -49,7 +49,7 @@
                 <?php foreach ($getNewProduct as $item) { ?>
                 <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                     <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="asset/image/<?= $item['image'] ?>">
+                        <div class="featured__item__pic set-bg" data-setbg="admin/upload/product/<?= $item['image'] ?>">
                             <ul class="featured__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -99,7 +99,7 @@
                                 <?php foreach ($getLatestProduct as $item) { ?>
                                 <a href="#" class="latest-product__item">
                                     <div class="latest-product__item__pic">
-                                        <img src="asset/image/<?= $item['image'] ?>" alt="">
+                                        <img src="admin/upload/product/<?= $item['image'] ?>" alt="">
                                     </div>
                                     <div class="latest-product__item__text">
                                         <h6><?= $item['name'] ?></h6>
@@ -119,7 +119,7 @@
                                 <?php foreach ($getProductByView as $item){ ?>
                                 <a href="#" class="latest-product__item">
                                     <div class="latest-product__item__pic">
-                                        <img src="asset/image/<?= $item['image'] ?>" alt="">
+                                        <img src="admin/upload/product/<?= $item['image'] ?>" alt="">
                                     </div>
                                     <div class="latest-product__item__text">
                                         <h6><?= $item['name'] ?></h6>
