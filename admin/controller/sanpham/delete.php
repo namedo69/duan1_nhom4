@@ -4,7 +4,7 @@ include_once './model/sanpham.php';
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $status = $_GET['status'];
-    changeStatus($id, $status);
+    changeStatusSanPham($id, $status);
 
     if ($status == 0) {
         $script = "<script> 

@@ -9,7 +9,6 @@ if (!isset($_POST['add'])) {
     $price = $_POST['price'];
     $description = $_POST['description'];
     $category_id = $_POST['category_id'];
-    $image = $_POST['image'];
     $fileName = null;
     if (isset($_FILES['image']) && $_FILES['image']['name'] != '') {
         $filePath = 'upload/';

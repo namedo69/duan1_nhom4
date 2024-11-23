@@ -28,7 +28,7 @@ include_once("./view/layouts/header.php");
         <section class="section">
             <div class="card">
                 <div class="card-body">
-                    <form action="index.php?action=addsanpham" method="post">
+                    <form action="index.php?action=addsanpham" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="tenSanPham" class="form-label">Tên sản phẩm</label>
                             <input type="text" class="form-control" name="name" id="tenSanPham">
