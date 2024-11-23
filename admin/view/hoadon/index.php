@@ -25,11 +25,10 @@ include_once("./view/layouts/header.php");
                             <tr>
                                 <th class="col-2">ID</th>
                                 <th>client_id</th>
-                                <th>status</th>
                                 <th>total</th>
                                 <th>created_at</th>
                                 <th>updated_at</th>
-                                
+                                <th>status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -39,13 +38,28 @@ include_once("./view/layouts/header.php");
                                 <tr>
                                     <td><?= $value['id'] ?></td>
                                     <td><?= $value['client_id'] ?></td>
-                                    <td><?= $value['status'] ?></td>
                                     <td><?= $value['total'] ?></td>
                                     <td><?= $value['created_at'] ?></td>
                                     <td><?= $value['updated_at'] ?></td>
+                                    
                                     <td>
                                         <div class="d-flex">
-                                            <a class="btn btn-secondary" href="">Chi tiết</a>
+                                            <?php
+                                            if ($value['status'] == 1) {
+                                                ?>
+                                                <a style="background :red" class="btn btn-danger" href="index.php?action=trangthaihoadon&id=<?=$value['id']?>&status=0">Chưa thanh toán</a>
+                                                <?php
+                                            } else {
+                                                ?>
+                                                <a style="background :green" class="btn btn-danger" href="index.php?action=trangthaihoadon&id=<?=$value['id']?>&status=1">Đã thanh toán</a>
+                                                <?php
+                                            }
+                                            ?>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex">
+                                        <a class="btn btn-secondary" href="index.php?action=cthoadon&id=<?=$value['id']?>">Chi tiết</a>
                                         </div>
                                     </td>
                                 </tr>
