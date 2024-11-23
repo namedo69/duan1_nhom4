@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 05b28e66df54bf3bcd56ca94b678faec69d55d1e
 <?php
 include_once './model/client.php';
 
