@@ -8,12 +8,12 @@ if (isset($_GET['id'])) {
 
     if ($status == 0) {
         $script = "<script> 
-        alert('Ẩn danh mục thành công!');
+        alert('Đã khóa người dùng!');
         window.location = 'index.php?action=listclient';
         </script>";
     } else {
         $script = "<script> 
-        alert('Hiện danh mục thành công!');
+        alert('Đã mở khóa người dùng!');
         window.location = 'index.php?action=listclient';
         </script>";
     }

@@ -71,34 +71,41 @@ include_once("./view/layouts/header.php");
 
     <!-- JavaScript để validate form -->
     <script>
-        document.querySelector("form").addEventListener("submit", function (e) {
-            // Lấy giá trị các input
-            const name = document.querySelector("input[name='name']").value.trim();
-            const price = document.querySelector("input[name='price']").value.trim();
-            const description = document.querySelector("input[name='description']").value.trim();
+    document.querySelector("form").addEventListener("submit", function (e) {
+        // Lấy giá trị các input
+        const name = document.querySelector("input[name='name']").value.trim();
+        const price = document.querySelector("input[name='price']").value.trim();
+        const description = document.querySelector("input[name='description']").value.trim();
+        const image = document.querySelector("input[name='image']").value.trim();
 
-            let errorMessage = '';
+        let errorMessage = '';
 
-            // Validate tên sản phẩm (không được rỗng)
-            if (name === '') {
-                errorMessage += "- Tên sản phẩm không được để trống.\n";
-            }
+        // Validate tên sản phẩm (không được rỗng)
+        if (name === '') {
+            errorMessage += "- Tên sản phẩm không được để trống.\n";
+        }
 
-            // Validate giá sản phẩm (phải là số dương)
-            if (price === '' || isNaN(price) || Number(price) <= 0) {
-                errorMessage += "- Giá sản phẩm phải là một số dương.\n";
-            }
+        // Validate giá sản phẩm (phải là số dương)
+        if (price === '' || isNaN(price) || Number(price) <= 0) {
+            errorMessage += "- Giá sản phẩm phải là một số dương.\n";
+        }
 
-            // Validate mô tả sản phẩm (không được rỗng)
-            if (description === '') {
-                errorMessage += "- Mô tả sản phẩm không được để trống.\n";
-            }
+        // Validate mô tả sản phẩm (không được rỗng)
+        if (description === '') {
+            errorMessage += "- Mô tả sản phẩm không được để trống.\n";
+        }
 
-            // Nếu có lỗi, chặn form gửi đi và hiển thị thông báo
-            if (errorMessage) {
-                e.preventDefault();
-                alert("Vui lòng thực hiện các yêu cầu sau:\n" + errorMessage);
-            }
-        });
-    </script>
+        // Validate file ảnh sản phẩm (không được để trống)
+        if (image === '') {
+            errorMessage += "- Vui lòng chọn ảnh sản phẩm.\n";
+        }
+
+        // Nếu có lỗi, chặn form gửi đi và hiển thị thông báo
+        if (errorMessage) {
+            e.preventDefault();
+            alert("Vui lòng thực hiện các yêu cầu sau:\n" + errorMessage);
+        }
+    });
+</script>
+
 </div>
