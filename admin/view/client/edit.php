@@ -30,34 +30,34 @@ include_once("./view/layouts/header.php");
                     <form action="index.php?action=editclient" method="post" enctype="multipart/form-data" onsubmit="handlePlaceholderValues(this)">
                         <div class="mb-3">
                             <label for="username" class="form-label">Username</label>
-                            <input type="text" placeholder="<?= $clientInfo['username'] ?>" class="form-control" name="username" id="username">
+                            <input type="text" placeholder="<?= $clientInfor['username'] ?>" class="form-control" name="username" id="username">
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" placeholder="<?= $clientInfo['password'] ?>" class="form-control" name="password" id="password">
+                            <input type="password" placeholder="<?= $clientInfor['password'] ?>" class="form-control" name="password" id="password">
                         </div>
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
-                            <input type="text" placeholder="<?= $clientInfo['name'] ?>" class="form-control" name="name" id="name">
+                            <input type="text" placeholder="<?= $clientInfor['name'] ?>" class="form-control" name="name" id="name">
                         </div>
 
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" placeholder="<?= $clientInfo['email'] ?>" class="form-control" name="email" id="email">
+                            <input type="email" placeholder="<?= $clientInfor['email'] ?>" class="form-control" name="email" id="email">
                         </div>
 
                         <div class="mb-3">
                             <label for="image" class="form-label">Avata</label>
                             <div>
-                                <img src="<?= $base_url . 'upload/client/' .'client/'. $clientInfo['image'] ?>" width="150px" alt="Avatar">
+                                <img src="<?= $base_url . 'upload/AnhNhanBan/client/'.$clientInfor['image'] ?>" width="150px" alt="Avatar">
                             </div>
                             <input type="file" class="form-control" name="image" id="image">
                         </div>
                         <div class="mb-3">
                             <label for="role" class="form-label">Role</label>
-                            <input type="text" placeholder="<?= $clientInfo['role'] ?>" class="form-control" name="role" id="role">
+                            <input type="text" placeholder="<?= $clientInfor['role'] ?>" class="form-control" name="role" id="role">
                         </div>
-                        <input type="hidden" value="<?= $clientInfo['client_id'] ?>" name="id">
+                        <input type="hidden" value="<?= $clientInfor['client_id'] ?>" name="id">
                         <button type="submit" name="edit" class="btn btn-primary">Sửa</button>
                     </form> 
                 </div>

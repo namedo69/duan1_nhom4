@@ -29,7 +29,7 @@ include_once("./view/layouts/header.php");
                                 <th class="col-2">Thời gian tạo</th>
                                 <th class="col-2">Thời gian cập nhật</th>
                                 <th class="col-1">Trạng thái</th>
-                                <th class="col-1">ACtion</th>
+                                <th class="col-1">Action</th>
                             </tr>
                         </thead> 
                         <tbody>
@@ -59,7 +59,7 @@ include_once("./view/layouts/header.php");
 
                                     <td>
                                         <div class="d-flex">
-                                            <a class="btn btn-secondary" href="index.php?action=cthoadon&id=<?= $value['id'] ?>">Chi tiết</a>
+                                            <a class="btn btn-primary" href="index.php?action=cthoadon&id=<?= $value['id'] ?>">Chi tiết</a>
                                         </div>
                                     </td>
                                 </tr>

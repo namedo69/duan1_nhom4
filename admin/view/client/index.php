@@ -43,19 +43,20 @@ include_once("./view/layouts/header.php");
                                     <td><?= $value['password'] ?></td>
                                     <td><?= $value['name'] ?></td>
                                     <td><?= $value['email'] ?></td>
-                                    <td><img src="<?= $base_url . 'upload/client/'. $value['image'] ?>" width="150px" alt="<?= $value['name'] ?>"></td>
-                                    <td><?= $value['role'] ?></td>
+                                    <td><img src="<?= $base_url . 'upload/AnhNhanBan/client/'. $value['image'] ?>" width="150px" alt="<?= $value['name'] ?>"></td>
+                                    <td><?= $value['role'] == 0 ? 'Admin' : 'User'; ?></td>
+
                                     <td>
-                                        <div class="d-flex">
-                                            <a class="btn btn-secondary" href="index.php?action=editclient&id=<?=$value['client_id']?>">Sửa</a>
+                                        <div class="d-flex gap-2">
+                                            <a class="btn btn-primary" href="index.php?action=editclient&id=<?=$value['client_id']?>">Sửa</a>
                                             <?php
                                             if ($value['status'] == 1) {
                                                 ?>
-                                                <a class="btn btn-danger" href="index.php?action=deleteclient&id=<?=$value['client_id']?>&status=0">Ẩn</a>
+                                                <a class="btn btn-danger" href="index.php?action=deleteclient&id=<?=$value['client_id']?>&status=0">Ban</a>
                                                 <?php
                                             } else {
                                                 ?>
-                                                <a class="btn btn-danger" href="index.php?action=deleteclient&id=<?=$value['client_id']?>&status=1">Hiện</a>
+                                                <a class="btn btn-success" href="index.php?action=deleteclient&id=<?=$value['client_id']?>&status=1">UnBan</a>
                                                 <?php
                                             }
                                             ?>

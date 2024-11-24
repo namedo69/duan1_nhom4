@@ -58,7 +58,7 @@ include_once("./view/layouts/header.php");
                         <div class="mb-3">
                             <label for="sanpham_image" class="form-label">Ảnh sản phẩm</label>
                             <div>
-                                <img src="<?= $base_url . 'upload/product/' . $sanphamInfo['image'] ?>" width="150px" alt="<?= $sanphamInfo['name'] ?>" style="max-width: 150px;">
+                                <img src="<?= $base_url . 'upload/AnhNhanBan/product/' . $sanphamInfo['image'] ?>" width="150px" alt="<?= $sanphamInfo['name'] ?>" style="max-width: 150px;">
                             </div>
                             <input type="file" 
                                    class="form-control" 

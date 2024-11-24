@@ -69,7 +69,7 @@ include_once("./view/layouts/header.php");
                                         <td><?= $item['product_id'] ?></td>
                                         <td><?= $item['name'] ?></td>
                                         <td><?= $item['quantity'] ?></td>
-                                        <td><img src="<?= $base_url . 'upload/product/' . $item['image'] ?>" width="150px" alt="<?= $item['name'] ?>"></td>
+                                        <td><img src="<?= $base_url . 'upload/AnhNhanBan/product/' . $item['image'] ?>" width="150px" alt="<?= $item['name'] ?>"></td>
                                         <td><?= number_format($item['price']) ?> VNĐ</td>
                                         <td><?= number_format($item['price'] * $item['quantity']) ?> VNĐ</td>
                                     </tr>

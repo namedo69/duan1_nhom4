@@ -37,8 +37,8 @@ include_once("./view/layouts/header.php");
                                     <td><?= $value['category_id'] ?></td>
                                     <td><?= $value['name'] ?></td>
                                     <td>
-                                        <div class="d-flex">
-                                            <a class="btn btn-secondary" href="index.php?action=editdanhmuc&id=<?=$value['category_id']?>">Sửa</a>
+                                        <div class="d-flex gap-2">
+                                            <a class="btn btn-primary" href="index.php?action=editdanhmuc&id=<?=$value['category_id']?>">Sửa</a>
                                             <?php
                                             if ($value['status'] == 1) {
                                                 ?>
@@ -46,7 +46,7 @@ include_once("./view/layouts/header.php");
                                                 <?php
                                             } else {
                                                 ?>
-                                                <a class="btn btn-danger" href="index.php?action=deletedanhmuc&id=<?=$value['category_id']?>&status=1">Hiện</a>
+                                                <a class="btn btn-success" href="index.php?action=deletedanhmuc&id=<?=$value['category_id']?>&status=1">Hiện</a>
                                                 <?php
                                             }
                                             ?>

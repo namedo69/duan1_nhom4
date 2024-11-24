@@ -33,12 +33,13 @@ function getClientById($id)
 
 function editClient($id,$username, $password, $name, $email,$role ,$fileName)
 {
-    if ($fileName == null){
+    if ($fileName == null) {
         $sql = "update client set username = '$username', password='$password', name='$name',email='$email', role='$role' where client_id='$id'";
+        pdo_execute($sql);
     } else {
         $sql = "update client set username = '$username', password='$password', name='$name',email='$email', role='$role', image='$fileName' where client_id='$id'";
-    }
-    pdo_execute($sql);
+        pdo_execute($sql);
+}
 }
 
 
