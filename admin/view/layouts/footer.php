@@ -1,11 +1,11 @@
 <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
-                        <p>2021 &copy; Mazer</p>
+                        <p>2024 &copy; Nhóm 4</p>
                     </div>
                     <div class="float-end">
-                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                                href="http://ahmadsaugi.com">A. Saugi</a></p>
+                        <p>Liên hệ với <span class="text-danger"><i class="bi bi-heart"></i></span><a
+                                href="https://zalo.me/g/xoeaki366"> Thành viên nhóm 4</a></p>
                     </div>
                 </div>
             </footer>
