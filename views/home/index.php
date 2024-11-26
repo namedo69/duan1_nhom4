@@ -57,7 +57,7 @@
                             </ul>
                         </div>
                         <div class="featured__item__text">
-                            <h6><a href="#"><?= $item['name'] ?></a></h6>
+                            <h6><a href="?url=product&act=detail&id=<?= $item['product_id'] ?>"><?= $item['name'] ?></a></h6>
                             <h5>$<?= $item['price'] ?></h5>
                         </div>
                     </div>
@@ -97,7 +97,7 @@
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
                                 <?php foreach ($getLatestProduct as $item) { ?>
-                                <a href="#" class="latest-product__item">
+                                <a href="?url=product&act=detail&id=<?= $item['product_id'] ?>" class="latest-product__item">
                                     <div class="latest-product__item__pic">
                                         <img src="admin/upload/product/<?= $item['image'] ?>" alt="">
                                     </div>
@@ -117,7 +117,7 @@
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
                                 <?php foreach ($getProductByView as $item){ ?>
-                                <a href="#" class="latest-product__item">
+                                <a href="?url=product&act=detail&id=<?= $item['product_id'] ?>" class="latest-product__item">
                                     <div class="latest-product__item__pic">
                                         <img src="admin/upload/product/<?= $item['image'] ?>" alt="">
                                     </div>
@@ -136,51 +136,17 @@
                         <h4>Review Products</h4>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
+                                <?php foreach ($getMostComment as $item){ ?>
+                                <a href="?url=product&act=detail&id=<?= $item['product_id'] ?>" class="latest-product__item">
                                     <div class="latest-product__item__pic">
-                                        <img src="asset/image/sach10.webp" alt="">
+                                        <img src="admin/upload/product/<?= $item['image'] ?>" alt="">
                                     </div>
                                     <div class="latest-product__item__text">
-                                        <h6>Bí kip không làm mà cũng có ăn </h6>
-                                        <span>$3000</span>
+                                        <h6><?= $item['name'] ?></h6>
+                                        <span><?= $item['price'] ?></span>
                                     </div>
                                 </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="asset/image/sach12.webp" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Olodo và những người bạn</h6>
-                                        <span>$50000</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="asset/image/sach13.webp" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Dark nhân tâm</h6>
-                                        <span>$70000</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="asset/image/sach14.webp" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Khò khò khò</h6>
-                                        <span>$50000</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="asset/image/sach15.webp" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Anh trai Say Gex</h6>
-                                        <span>$50000</span>
-                                    </div>
-                                </a>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
