@@ -17,6 +17,9 @@ if (isset($_GET['url'])) {
         case 'category':
             include_once 'controller/CategoryController.php';
             break;
+        case 'product':
+            include_once 'controller/ProductController.php';
+            break;
     }
 } else {
     header('location: ?url=page&act=home');
