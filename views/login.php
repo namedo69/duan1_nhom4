@@ -21,7 +21,16 @@
             Chưa có tài khoản?
         </div>
         <div class="col-md-7 text-right">
-            <a class="text-decoration-none font-semibold" href="?url=user&act=register">Đăng kí</a>
+            <a class="dangki" href="?url=user&act=register">Đăng kí</a>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-5 text-start">
+            Quản trị viên?
+        </div>
+        <div class="col-md-7 text-right">
+        <a class="admin" href="http://localhost/duan1_nhom4/admin/">Quản lí</a>
         </div>
     </div>
 </form>

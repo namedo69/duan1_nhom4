@@ -128,12 +128,7 @@ if ($currentAction === 'listclient' || $currentAction === 'addclient' || $curren
                                 <span>Người dùng</span>
                             </a>
                         </li>
-                        <li class="sidebar-item <?php echo $currentAction === 'listcomment' ? 'active' : ''; ?>">
-                            <a href="logout.php" class='sidebar-link'>
-                                <i class="bi bi-file-earmark-spreadsheet-fill"></i>
-                                <span>Logout</span>
-                            </a>
-                        </li>
+                      
 
                     </ul>
                 </div>
@@ -141,6 +136,8 @@ if ($currentAction === 'listclient' || $currentAction === 'addclient' || $curren
             </div>
         </div>
     </div>
+
+    
 </body>
 
 </html>

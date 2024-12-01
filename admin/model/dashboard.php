@@ -7,58 +7,82 @@ function listHoaDon()
     return pdo_query($sql);
 }
 
-function listClient()
-{
-    $sql = 'select * from client';
-    return pdo_query($sql);
+function getDailyRevenue($listHoaDon) {
+    // Lấy ngày hiện tại
+    $currentDate = date('Y-m-d');
+
+    $totalRevenue = 0;
+
+    // Duyệt qua mảng `$listHoaDon`
+    foreach ($listHoaDon as $hoaDon) {
+        // Kiểm tra trạng thái và ngày của `created_at`
+        $createdAt = substr($hoaDon['created_at'], 0, 10); // Lấy ngày (Y-m-d)
+        if ($hoaDon['status'] == 0 && $createdAt == $currentDate) {
+            $totalRevenue += $hoaDon['total'];
+        }
+    }
+
+    return $totalRevenue;
+}
+
+function getWeeklyRevenue($listHoaDon) {
+    // Lấy ngày bắt đầu tuần và ngày kết thúc tuần (tuần này)
+    $weekStart = date('Y-m-d', strtotime('monday this week')); // Ngày bắt đầu tuần (Thứ Hai)
+    $weekEnd = date('Y-m-d'); // Ngày kết thúc tuần là hôm nay
+
+    $totalRevenue = 0;
+
+    // Duyệt qua mảng `$listHoaDon`
+    foreach ($listHoaDon as $hoaDon) {
+        // Kiểm tra trạng thái và ngày `created_at` trong tuần này
+        $createdAt = substr($hoaDon['created_at'], 0, 10); // Lấy ngày (Y-m-d)
+        if ($hoaDon['status'] == 0 && $createdAt >= $weekStart && $createdAt <= $weekEnd) {
+            $totalRevenue += $hoaDon['total'];
+        }
+    }
+
+    return $totalRevenue;
+}
+function getMonthlyRevenue($listHoaDon) {
+    // Lấy tháng hiện tại (Y-m)
+    $currentMonth = date('Y-m');
+
+    $totalRevenue = 0;
+
+    // Duyệt qua mảng `$listHoaDon`
+    foreach ($listHoaDon as $hoaDon) {
+        // Kiểm tra trạng thái và tháng của `created_at`
+        $createdAt = substr($hoaDon['created_at'], 0, 7); // Lấy tháng (Y-m)
+        if ($hoaDon['status'] == 0 && $createdAt == $currentMonth) {
+            $totalRevenue += $hoaDon['total'];
+        }
+    }
+
+    return $totalRevenue;
 }
 
 function listComment()
 {
-    $sql = 'select * from comment';
+    $sql = 'SELECT *
+FROM comment
+ORDER BY comment_id DESC
+LIMIT 4;';
     return pdo_query($sql);
 }
-function listProduct()
+function listContact()
 {
-    $sql = 'select * from product';
+    $sql = 'SELECT *
+FROM contact
+ORDER BY id DESC
+LIMIT 6;';
     return pdo_query($sql);
 }
-function getMonthlyRevenue($listHoaDon) {
-    $sql = "SELECT 
-    SUM(total) AS total_revenue
-    FROM 
-    bill
-    WHERE 
-    status = 0
-    AND DATE_FORMAT(created_at, '%Y-%m') = '2024-11'";
 
-return  pdo_query_value($sql);
-}
-
-function countBill($listHoaDon) 
+function listClient()
 {
-    $sql = "SELECT COUNT(*) AS total_bills
-FROM bill
-WHERE status = 0;
-";
-
-return  pdo_query_value($sql);
+    $sql = 'SELECT *
+FROM client';
+    return pdo_query($sql);
 }
 
-function countProduct($listProduct) 
-{
-    $sql = "SELECT COUNT(*) AS product_id
-FROM product;
-";
-
-return  pdo_query_value($sql);
-}
-
-function countClient($listClient) 
-{
-    $sql = "SELECT COUNT(*) AS client_id
-            FROM client
-            WHERE status = 1"; 
-    return pdo_query_value($sql); 
-}
 

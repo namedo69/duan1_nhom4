@@ -7,7 +7,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     $checkUser = userLogin($username, $password);
 
     if ($checkUser && $checkUser['role'] == 0) {
-        $_SESSION['admin'] = $checkUser;
+        $_SESSION['admin']['username'] = $username;
         header('location: index.php');
         exit();
     } else {
