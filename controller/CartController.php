@@ -111,6 +111,7 @@ if (isset($_GET['act'])){
                     $phone = $_POST['phone'];
                     $email = $_POST['email'];
                     $pay = $_POST['pay'];
+                    $status = 0;
                     $tongTien += 20000;
                     if (!isset($_SESSION['user'])) {
                         echo "<script>
@@ -121,7 +122,7 @@ if (isset($_GET['act'])){
                     } else {
                         $client_id = $_SESSION['user']['client_id'];
                     }
-                    $bill_id = addCheckout($client_id, $name, $phone, $email, $address, $tongTien, $pay);
+                    $bill_id = addCheckout($client_id, $name, $phone, $email, $address, $tongTien, $pay, $status);
 
                     foreach ($listCart as $item) {
                         addCheckoutDetail($bill_id, $item['id'], $item['quantity'], $item['price']);
