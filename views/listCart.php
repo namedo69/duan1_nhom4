@@ -35,7 +35,7 @@
                         <?php foreach ($listCart as $item) { ?>
                         <tr>
                             <td class="shoping__cart__item">
-                                <img width="100px" src="admin/upload/product/<?= $item['image'] ?>" alt="">
+                                <img width="100px" src="admin/upload/AnhNhanBan/product/<?= $item['image'] ?>" alt="">
                                 <h5><?= $item['name'] ?></h5>
                             </td>
                             <td class="shoping__cart__price">
@@ -64,7 +64,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="shoping__cart__btns">
-                    <a href="#" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
+                    <a href="http://localhost/duan1_nhom4/index.php?url=product&act=listAll" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
                     <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
                         Upadate Cart</a>
                 </div>

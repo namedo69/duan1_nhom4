@@ -1,3 +1,55 @@
+<!-- Hero Section Begin -->
+
+<div class="container">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="hero__search">
+                    <div class="hero__search__form">
+                        <form action="?url=product&act=search" method="post">
+                            <input name="keyword" type="text" placeholder="What do you need?">
+                            <button type="submit" class="site-btn">SEARCH</button>
+                        </form>
+                    </div>
+                    <div class="hero__search__phone">
+                        <div class="hero__search__phone__icon">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="hero__search__phone__text">
+                            <h5>+65 11.188.888</h5>
+                            <span>support 24/7 time</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <div class="col-lg-33">
+                <div class="hero__categories">
+                        <div class="hero__categories__all">
+                            <i class="fa fa-bars"></i>
+                            <span>All departments</span>
+                        </div>
+                        <div class="danhmuc_banner">
+                            <ul class="hero-list">
+                               
+                                    <?php foreach ($getAllCategory as $item){ ?>
+                                        <li><a href="?url=category&act=detail&id=<?= $item['category_id'] ?>"> <?= $item['name'] ?></a></li>
+                                    <?php } ?>
+                            
+                            </ul>
+                            <ul class="hero-banner">
+                         <!-- Ảnh nền -->
+                         <div    height: 300px; class="hero__item set-bg" data-setbg="admin/upload/AnhGoc/banner.png">
+                            
+                            </div>
+                        </ul>
+
+                        </div>
+                </div>
+            </div>
+      
+    </div>
+</section>
 
     <!-- Categories Section Begin -->
     <section class="categories">
@@ -62,12 +114,12 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="banner__pic">
-                        <img src="img/banner/banner-1.jpg" alt="">
+                        <img src="admin/upload/AnhGoc/banner.png" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="banner__pic">
-                        <img src="img/banner/banner-2.jpg" alt="">
+                        <img src="admin/upload/AnhGoc/banner.png" alt="">
                     </div>
                 </div>
             </div>
