@@ -27,7 +27,7 @@ include_once("./view/layouts/header.php");
                                 <th class="col-1">Id user</th>
                                 <th class="col-2">Cần thanh toán (VNĐ)</th>
                                 <th class="col-2">Thời gian tạo</th>
-                                <th class="col-2">Thời gian cập nhật</th>
+                                <th class="col-2">Hình thức thanh toán</th>
                                 <th class="col-1">Trạng thái</th>
                                 <th class="col-1">Action</th>
                             </tr>
@@ -41,7 +41,15 @@ include_once("./view/layouts/header.php");
                                     <td><?= $value['client_id'] ?></td>
                                     <td><?= $value['total'] ?></td>
                                     <td><?= $value['created_at'] ?></td>
-                                    <td><?= $value['updated_at'] ?></td>
+                                    <td>
+                                        <?php
+                                        if ($value['pay'] == 0) {
+                                            echo '<span style="color: blue; font-weight: bold;">Chuyển khoản</span>';
+                                        } else {
+                                            echo '<span style="color: orangered; font-weight: bold;">Tiền mặt</span>';
+                                        }
+                                        ?>
+                                    </td>
 
                                     <td>
                                         <div class="d-flex">
