@@ -34,7 +34,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#" class="primary-btn">ADD TO CARD</a>
+                        <a href="?url=cart&act=addToCart&id=<?= $productDetail['product_id'] ?>" class="primary-btn">Thêm</a>
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         <ul>
                             <li><b>Availability</b> <span>In Stock</span></li>
@@ -74,8 +74,7 @@
                         <?php if (isset($_SESSION['user'])) { ?>
                             <form action="" method="post">
                                 <h6>Nhập bình luận</h6>
-                                <textarea class="form-control" id="content" name="content" placeholder="Bình luận về sản phẩm">
-                                </textarea>
+                                <textarea class="form-control" id="content" name="content" placeholder="Bình luận về sản phẩm"></textarea>
                                 <div class="float-end mt-2 pt-1 mb-2">
                                     <button type="submit" name="comment" class="btn btn-primary btn-sm">Gửi</button>
                                 </div>
@@ -98,7 +97,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title related__product__title">
-                        <h2>Related Product</h2>
+                        <h2>Sản phẩm liên quan</h2>
                     </div>
                 </div>
             </div>
@@ -114,8 +113,8 @@
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#"><?= $item['name'] ?></a></h6>
-                            <h5>$<?= $item['price'] ?></h5>
+                            <h6><a href="?url=product&act=detail&id="<?= $item['product_id'] ?><?= $item['name'] ?></a></h6>
+                            <h5><?= $item['price'] ?>VND</h5>
                         </div>
                     </div>
                 </div>
