@@ -583,8 +583,17 @@ ol {
     position: relative;
 }
 
+.hero-banner img {
+    width: 812px; /* Đặt img ngang bằng chiều rộng ul */
+    height: 345px; /* Duy trì tỉ lệ của ảnh */
+    display: block; /* Xóa khoảng trống mặc định của img */
+	margin-top: -10px;
+	margin-left: -40px;
+}
 
-
+.hero_item {
+  
+}
 
 .hero__text {
     z-index: 2; /* Đảm bảo nội dung trên ảnh */
@@ -607,13 +616,22 @@ ol {
 .hero-banner{
 	margin-top: 10px;
 	width: 74.9%;
-
+	background-color:#ffffff;
 }
 
 .hero.hero-normal .hero__categories {
 	position: relative;
 }
 
+.hero.hero-normal .hero__categories ul {
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 46px;
+	width: 100%;
+	z-index: 9;
+	background: #ffffff;
+}
 
 .hero.hero-normal .hero__search {
 	margin-bottom: 0;
@@ -760,7 +778,7 @@ ol {
 }
 
 .hero__item {
-	
+	height: 431px;
 	display: flex;
 	align-items: center;
 	padding-left: 75px;
@@ -3509,3 +3527,16 @@ ol {
 	margin-left: 26%;
 }
 
+.hero__categories ul.hero-banner {
+    border: 1px solid #ffffff;
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-bottom: 12px;
+}
+
+.hero__item.set-bg {
+    margin-top: -10px;
+    margin-left: -40px;
+}
+.hero__item.set-bg {
+  
