@@ -3538,5 +3538,10 @@ ol {
     margin-top: -10px;
     margin-left: -40px;
 }
-.hero__item.set-bg {
+.dangki:hover{
+	color:red;
+}
+.admin:hover{
+	color:red;
+}
   

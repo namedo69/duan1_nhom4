@@ -1,5 +1,12 @@
 <?php
 include_once './model/dashboard.php';
-// Nếu cần dữ liệu ở data base thì gọi model
+
+$listHoaDon=listHoaDon();
+$listComment=listComment();
+$listContact=listContact();
+$listClient=listClient();
+$doanhthuthang=getMonthlyRevenue($listHoaDon);
+$doanhthutuan=getWeeklyRevenue($listHoaDon);
+$doanhthungay=getDailyRevenue($listHoaDon);
 
 include_once './view/dashboard/index.php';
