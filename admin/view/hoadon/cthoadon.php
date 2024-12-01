@@ -22,7 +22,7 @@ include_once("./view/layouts/header.php");
                     <form method="post" action="index.php?action=capnhathoadon">
                         <div class="mb-3">
                             <label for="name" class="form-label">Tên người nhận</label>
-                            <input disabled value="<?= $hoaDonChiTiet['name_client'] ?>" type="text" class="form-control" name="ten"
+                            <input disabled value="<?= $hoaDonChiTiet['name'] ?>" type="text" class="form-control" name="ten"
                                 id="name" aria-describedby="name">
                         </div>
                         <div class="mb-3">
