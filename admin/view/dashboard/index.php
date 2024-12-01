@@ -27,7 +27,7 @@ include_once("./view/layouts/header.php");
                                     </div>
                                     <div class="col-md-8">
                                         <h6 class="text-muted font-semibold">Doanh thu ngày</h6>
-                                        <h6 class="font-extrabold mb-0"><?= $income ?></h6>
+                                        <h6 class="font-extrabold mb-0"><?= $doanhthu ?></h6>
                                     </div>
                                 </div>
                             </div>

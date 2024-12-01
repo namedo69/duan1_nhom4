@@ -6,11 +6,11 @@
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">
                             <img class="product__details__pic__item--large"
-                                src="admin/upload/product/<?= $productDetail['image'] ?>" alt="">
+                                src="admin/upload/AnhNhanBan/product/<?= $productDetail['image'] ?>" alt="">
                         </div>
 <!--                        <div class="product__details__pic__slider owl-carousel">-->
 <!--                            <img data-imgbigurl="img/product/details/product-details-2.jpg"-->
-<!--                                src="../admin/upload/product/--><?php //= $productDetail['image'] ?><!--" alt="">-->
+<!--                                src="../admin/upload/AnhNhanBan/product/--><?php //= $productDetail['image'] ?><!--" alt="">-->
 <!--                        </div>-->
                     </div>
                 </div>
@@ -106,7 +106,7 @@
                 <?php foreach ($randomProduct as $item) { ?>
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="admin/upload/product/<?= $item['image'] ?>">
+                        <div class="product__item__pic set-bg" data-setbg="admin/upload/AnhNhanBan/product/<?= $item['image'] ?>">
                             <ul class="product__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>

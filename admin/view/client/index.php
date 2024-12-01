@@ -44,7 +44,7 @@ include_once("./view/layouts/header.php");
                                     <td><?= $value['name'] ?></td>
                                     <td><?= $value['email'] ?></td>
                                     <td><img src="<?= $base_url . 'upload/AnhNhanBan/client/'. $value['image'] ?>" width="150px" alt="<?= $value['name'] ?>"></td>
-                                    <td><?= $value['role'] == 0 ? 'Admin' : 'User'; ?></td>
+                                    <td><?= $value['role'] == 0 ? 'User' : 'Admin'; ?></td>
 
                                     <td>
                                         <div class="d-flex gap-2">

@@ -20,7 +20,8 @@
     <link rel="stylesheet" href="ogani-master/css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="ogani-master/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="ogani-master/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="ogani-master/css/style.css" type="text/css">
+    <link rel="stylesheet" href="asset/css/style.css" type="text/css">
+    <link rel="stylesheet" href="asset/css/css.css" type="text/css">
 </head>
 
 <body>
@@ -138,7 +139,7 @@
             <div class="col-lg-6">
                 <nav class="header__menu">
                     <ul>
-                        <li class="active"><a href="./index.html">Home</a></li>
+                        <li class="active"><a href="?url=page&act=home">Home</a></li>
                         <li><a href="?url=product&act=listAll">Shop</a></li>
                         <li><a href="#">Pages</a>
                             <ul class="header__menu__dropdown">
@@ -173,19 +174,6 @@
 <section class="hero">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3">
-                <div class="hero__categories">
-                    <div class="hero__categories__all">
-                        <i class="fa fa-bars"></i>
-                        <span>All departments</span>
-                    </div>
-                    <ul>
-                        <?php foreach ($getAllCategory as $item){ ?>
-                        <li><a href="?url=category&act=detail&id=<?= $item['category_id'] ?>"><?= $item['name'] ?></a></li>
-                        <?php } ?>
-                    </ul>
-                </div>
-            </div>
             <div class="col-lg-9">
                 <div class="hero__search">
                     <div class="hero__search__form">
@@ -206,5 +194,31 @@
                 </div>
             </div>
         </div>
+        <section class="hero hero-normal">
+        <div class="col-lg-33">
+                <div class="hero__categories">
+                        <div class="hero__categories__all">
+                            <i class="fa fa-bars"></i>
+                            <span>All departments</span>
+                        </div>
+                        <div class="danhmuc_banner">
+                            <ul class="hero-list">
+                               
+                                    <?php foreach ($getAllCategory as $item){ ?>
+                                        <li><a href="?url=category&act=detail&id=<?= $item['category_id'] ?>"> <?= $item['name'] ?></a></li>
+                                    <?php } ?>
+                            
+                            </ul>
+                            <ul class="hero-banner">
+                         <!-- Ảnh nền -->
+                         <div    height: 300px; class="hero__item set-bg" data-setbg="admin/upload/AnhGoc/banner.png">
+                            
+                            </div>
+                        </ul>
+
+                        </div>
+                </div>
+            </div>
+        </section>
     </div>
 </section>
