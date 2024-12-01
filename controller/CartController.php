@@ -1,5 +1,17 @@
 <?php
 
+ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+     function countCartItems() {
+         if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+             return count($_SESSION['cart']);
+         }
+         return 0;
+     }
+     
+     // Kiểm tra session và tính toán số lượng sản phẩm
+     $demsanpham = countCartItems(); // Nếu giỏ hàng không có sản phẩm, sẽ trả về 0
+     
+ } else {$demsanpham=0;}
 if (isset($_GET['act'])){
     switch ($_GET['act']) {
         case 'addToCart':

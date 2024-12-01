@@ -8,7 +8,7 @@
                             <h4>Department</h4>
                             <ul>
                                 <?php foreach ($listCategory as $item){ ?>
-                                <li><a href="#"><?= $item['name'] ?></a></li>
+                                <li><a href="?url=category&act=detail&id=<?= $item['category_id'] ?>"><?= $item['name'] ?></a></li>
                                 <?php } ?>
                             </ul>
                         </div>
@@ -101,15 +101,6 @@ Tiny
                     <h3 class="font-weight-bolder">Shop</h3>
                     <div class="filter__item">
                         <div class="row">
-                            <div class="col-lg-4 col-md-5">
-                                <div class="filter__sort">
-                                    <span>Sort By</span>
-                                    <select>
-                                        <option value="0">Default</option>
-                                        <option value="0">Default</option>
-                                    </select>
-                                </div>
-                            </div>
                             <div class="col-lg-4 col-md-4">
                                 <div class="filter__found">
                                     <h6><span><?= $totalProduct ?></span> Sản phẩm</h6>
@@ -131,7 +122,7 @@ Tiny
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                         <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a href="?url=cart&act=addToCart&id=<?= $item['product_id'] ?>"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">

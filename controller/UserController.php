@@ -13,6 +13,19 @@ if (isset($_GET['act'])) {
                     $_SESSION['error'] = 'Sai tài khoản hoặc mật khẩu';
                 }
             }
+            include_once 'controller/CartController.php';
+            if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+                function countCartItems6() {
+                    if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+                        return count($_SESSION['cart']);
+                    }
+                    return 0;
+                }
+                
+                // Kiểm tra session và tính toán số lượng sản phẩm
+                $demsanpham = countCartItems6(); // Nếu giỏ hàng không có sản phẩm, sẽ trả về 0
+                
+            } else {$demsanpham=0;}
             include_once 'views/layout/header.php';
             include_once 'views/login.php';
             include_once 'views/layout/footer.php';
@@ -33,6 +46,19 @@ if (isset($_GET['act'])) {
                     header('Location: ?url=user&act=login');
                 }
             }
+            include_once 'controller/CartController.php';
+            if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+                function countCartItems7() {
+                    if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+                        return count($_SESSION['cart']);
+                    }
+                    return 0;
+                }
+                
+                // Kiểm tra session và tính toán số lượng sản phẩm
+                $demsanpham = countCartItems7(); // Nếu giỏ hàng không có sản phẩm, sẽ trả về 0
+                
+            } else {$demsanpham=0;}
             include_once 'views/layout/header.php';
             include_once 'views/register.php';
             include_once 'views/layout/footer.php';

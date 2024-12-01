@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -157,9 +158,10 @@
             <div class="col-lg-3">
                 <div class="header__cart">
                     <ul>
-                        <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                        <li><a href="?url=cart&act=listCart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+
+                        <li><a href="?url=cart&act=listCart"><i class="fa fa-shopping-bag"></i> <span><?php echo $demsanpham ?></span></a></li>
                     </ul>
+                    
                 </div>
             </div>
         </div>
@@ -170,55 +172,3 @@
 </header>
 <!-- Header Section End -->
 
-<!-- Hero Section Begin -->
-<section class="hero hero-normal">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-9">
-                <div class="hero__search">
-                    <div class="hero__search__form">
-                        <form action="?url=product&act=search" method="post">
-                            <input name="keyword" type="text" placeholder="What do you need?">
-                            <button type="submit" class="site-btn">SEARCH</button>
-                        </form>
-                    </div>
-                    <div class="hero__search__phone">
-                        <div class="hero__search__phone__icon">
-                            <i class="fa fa-phone"></i>
-                        </div>
-                        <div class="hero__search__phone__text">
-                            <h5>+65 11.188.888</h5>
-                            <span>support 24/7 time</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <section class="hero hero-normal">
-        <div class="col-lg-33">
-                <div class="hero__categories">
-                        <div class="hero__categories__all">
-                            <i class="fa fa-bars"></i>
-                            <span>All departments</span>
-                        </div>
-                        <div class="danhmuc_banner">
-                            <ul class="hero-list">
-                               
-                                    <?php foreach ($getAllCategory as $item){ ?>
-                                        <li><a href="?url=category&act=detail&id=<?= $item['category_id'] ?>"> <?= $item['name'] ?></a></li>
-                                    <?php } ?>
-                            
-                            </ul>
-                            <ul class="hero-banner">
-                         <!-- Ảnh nền -->
-                         <div    height: 300px; class="hero__item set-bg" data-setbg="admin/upload/AnhGoc/banner.png">
-                            
-                            </div>
-                        </ul>
-
-                        </div>
-                </div>
-            </div>
-        </section>
-    </div>
-</section>
