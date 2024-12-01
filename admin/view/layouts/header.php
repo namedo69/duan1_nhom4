@@ -1,6 +1,15 @@
+<?php
+ob_start();
+session_start();
+if (isset($_SESSION['admin'])){
+    $admin = $_SESSION['admin'];
+} else {
+    header("location: login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -117,6 +126,12 @@ if ($currentAction === 'listclient' || $currentAction === 'addclient' || $curren
                             <a href="index.php?action=listclient" class='sidebar-link'>
                                 <i class="bi bi-file-earmark-spreadsheet-fill"></i>
                                 <span>Người dùng</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item <?php echo $currentAction === 'listcomment' ? 'active' : ''; ?>">
+                            <a href="logout.php" class='sidebar-link'>
+                                <i class="bi bi-file-earmark-spreadsheet-fill"></i>
+                                <span>Logout</span>
                             </a>
                         </li>
 
