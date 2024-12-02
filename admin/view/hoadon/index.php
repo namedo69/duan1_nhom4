@@ -55,9 +55,9 @@ include_once("./view/layouts/header.php");
                                         <div class="d-flex">
                                             <?php
                                             if ($value['status'] == 0) {
-                                                echo '<span style="color: green; font-weight: bold;">Đã thanh toán</span>';
+                                                echo '<span style="color: red; font-weight: bold;">Chưa thanh toán</span>';               
                                             } elseif ($value['status'] == 1) {
-                                                echo '<span style="color: red; font-weight: bold;">Chưa thanh toán</span>';
+                                                echo '<span style="color: green; font-weight: bold;">Đã thanh toán</span>';
                                             } elseif ($value['status'] == 2) {
                                                 echo '<span style="color: gray; font-weight: bold;">Đã hủy</span>';
                                             }

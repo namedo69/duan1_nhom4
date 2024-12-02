@@ -18,7 +18,6 @@ include_once("./view/layouts/header.php");
         </div>
         <section class="section">
             <div class="card">
-            <a class="btn btn-primary" href="index.php?action=addclient">Thêm người dùng</a>
                 <div class="card-body">
                     <table class="table table-striped" id="table1">
                         <thead>
@@ -44,7 +43,7 @@ include_once("./view/layouts/header.php");
                                     <td><?= $value['name'] ?></td>
                                     <td><?= $value['email'] ?></td>
                                     <td><img src="<?= $base_url . 'upload/AnhNhanBan/client/'. $value['image'] ?>" width="150px" alt="<?= $value['name'] ?>"></td>
-                                    <td><?= $value['role'] == 0 ? 'User' : 'Admin'; ?></td>
+                                    <td><?= $value['role'] == 0 ? 'Admin' : 'User'; ?></td>
 
                                     <td>
                                         <div class="d-flex gap-2">

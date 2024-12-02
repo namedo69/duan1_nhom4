@@ -3,7 +3,8 @@ include_once 'pdo.php';
 
 function addCheckout($client_id, $name, $phone, $email, $address, $tongTien, $pay, $status)
 {
-    $sql = "INSERT INTO bill (client_id, name, phone, email, address, total, pay, status) VALUES ('$client_id', '$name', '$phone', '$email', '$address', '$tongTien', '$pay', '$status')";
+    $thanhtoan=$tongTien+20000
+    $sql = "INSERT INTO bill (client_id, name, phone, email, address, total, pay, status) VALUES ('$client_id', '$name', '$phone', '$email', '$address', '$thanhtoan', '$pay', '$status')";
     return pdo_execute_return_id($sql);
 }
 

@@ -44,9 +44,6 @@ if (isset($_GET['action']) && $_GET['action'] != '') {
             case "listclient":
                 include_once 'controller/client/index.php';
                 break;
-            case "addclient":
-                include_once 'controller/client/add.php';
-                break;
             case "editclient":
                 include_once 'controller/client/edit.php';
                 break;

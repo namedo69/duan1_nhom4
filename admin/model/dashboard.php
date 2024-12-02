@@ -17,7 +17,7 @@ function getDailyRevenue($listHoaDon) {
     foreach ($listHoaDon as $hoaDon) {
         // Kiểm tra trạng thái và ngày của `created_at`
         $createdAt = substr($hoaDon['created_at'], 0, 10); // Lấy ngày (Y-m-d)
-        if ($hoaDon['status'] == 0 && $createdAt == $currentDate) {
+        if ($hoaDon['status'] == 1 && $createdAt == $currentDate) {
             $totalRevenue += $hoaDon['total'];
         }
     }
