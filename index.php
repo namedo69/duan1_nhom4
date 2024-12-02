@@ -25,6 +25,9 @@ if (isset($_GET['url'])) {
         case 'contact':
             include_once 'controller/ContactController.php';
             break;
+        case 'about':
+            include_once 'controller/AboutController.php';
+            break;
     }
 } else {
     header('location: ?url=page&act=home');

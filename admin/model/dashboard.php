@@ -36,7 +36,7 @@ function getWeeklyRevenue($listHoaDon) {
     foreach ($listHoaDon as $hoaDon) {
         // Kiểm tra trạng thái và ngày `created_at` trong tuần này
         $createdAt = substr($hoaDon['created_at'], 0, 10); // Lấy ngày (Y-m-d)
-        if ($hoaDon['status'] == 0 && $createdAt >= $weekStart && $createdAt <= $weekEnd) {
+        if ($hoaDon['status'] == 1 && $createdAt >= $weekStart && $createdAt <= $weekEnd) {
             $totalRevenue += $hoaDon['total'];
         }
     }
@@ -53,7 +53,7 @@ function getMonthlyRevenue($listHoaDon) {
     foreach ($listHoaDon as $hoaDon) {
         // Kiểm tra trạng thái và tháng của `created_at`
         $createdAt = substr($hoaDon['created_at'], 0, 7); // Lấy tháng (Y-m)
-        if ($hoaDon['status'] == 0 && $createdAt == $currentMonth) {
+        if ($hoaDon['status'] == 1 && $createdAt == $currentMonth) {
             $totalRevenue += $hoaDon['total'];
         }
     }
