@@ -22,6 +22,9 @@ if (isset($_GET['url'])) {
             break;
         case 'cart':
             include_once 'controller/CartController.php';
+        case 'contact':
+            include_once 'controller/ContactController.php';
+            break;
     }
 } else {
     header('location: ?url=page&act=home');
