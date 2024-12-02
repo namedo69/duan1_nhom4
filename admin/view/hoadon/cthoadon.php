@@ -37,14 +37,23 @@ include_once("./view/layouts/header.php");
                         </div>
 
                         <div class="mb-3">
+                            <label for="name" class="form-label">Tổng tiền hàng (VNĐ)</label>
+                            <input disabled value="<?= $hoaDonChiTiet['total']-20000 ?>" type="text" class="form-control" value="<?= 1 ?> VNĐ">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Tiền ship (VNĐ)</label>
+                            <input disabled value="20000 " type="text" class="form-control" value="<?= 1 ?> VNĐ">
+                        </div>
+                        <div class="mb-3">
                             <label for="name" class="form-label">Số tiền cần thanh toán (VNĐ)</label>
                             <input disabled value="<?= $hoaDonChiTiet['total'] ?>" type="text" class="form-control" value="<?= 1 ?> VNĐ">
                         </div>
                         <div class="mb-3">
                             <label for="name" class="form-label">Tình trạng thanh toán</label>
                             <select name="status" class="form-select" aria-label="Default select example">
-                                <option <?= $hoaDonChiTiet['status'] == 0 ? 'selected' : '' ?> value="0">Đã thanh toán</option>
-                                <option <?= $hoaDonChiTiet['status'] == 1 ? 'selected' : '' ?> value="1">Chưa thanh toán</option>
+                                <option <?= $hoaDonChiTiet['status'] == 0 ? 'selected' : '' ?> value="0">Chưa thanh toán</option>
+                                <option <?= $hoaDonChiTiet['status'] == 1 ? 'selected' : '' ?> value="1">Đã thanh toán</option>
                                 <option <?= $hoaDonChiTiet['status'] == 2 ? 'selected' : '' ?> value="2">Đã hủy</option>
                             </select>
                         </div>

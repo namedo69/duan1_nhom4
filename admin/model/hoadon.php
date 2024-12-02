@@ -8,9 +8,16 @@ function listHoaDon()
 }
 function changeStatusHoaDon($id, $status)
 {
-    $sql = "update bill set status = '$status' where id='$id'";
+    // Lấy thời gian hiện tại
+    $created_at = date('Y-m-d H:i:s'); // Định dạng thời gian theo kiểu MySQL
+
+    // Cập nhật status và created_at
+    $sql = "UPDATE bill SET status = '$status', created_at = '$created_at' WHERE id = '$id'";
+    
+    // Thực thi câu lệnh SQL
     pdo_execute($sql);
 }
+
 function getHoaDonById($id)
 {
     $sql = "select * from bill where id = $id";

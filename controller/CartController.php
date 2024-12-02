@@ -1,29 +1,32 @@
+
+
+
+
+
+
 <?php
 
- if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
-     function countCartItems() {
-         if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
-             return count($_SESSION['cart']);
-         }
-         return 0;
-     }
-     
-     // Kiểm tra session và tính toán số lượng sản phẩm
-     $demsanpham = countCartItems(); // Nếu giỏ hàng không có sản phẩm, sẽ trả về 0
-     
- } else {$demsanpham=0;}
-if (isset($_GET['act'])){
+
+if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+    function countCartItems() {
+        return count($_SESSION['cart']);
+    }
+    
+    $demsanpham = countCartItems();
+} else {
+    $demsanpham = 0;
+}
+
+if (isset($_GET['act'])) {
     switch ($_GET['act']) {
         case 'addToCart':
-            if (isset($_GET['id'])){
+            if (isset($_GET['id'])) {
                 $id = $_GET['id'];
                 $quantity = 1;
+                
                 if (!isset($_SESSION['cart'])) {
                     $_SESSION['cart'] = [];
-                    $_SESSION['cart'][] = [
-                        'id' => $id,
-                        'quantity' => $quantity
-                    ];
+                    $_SESSION['cart'][] = ['id' => $id, 'quantity' => $quantity];
                 } else {
                     $tonTaiTrongGioHang = false;
                     foreach ($_SESSION['cart'] as $key => $value) {
@@ -32,79 +35,86 @@ if (isset($_GET['act'])){
                             $_SESSION['cart'][$key]['quantity'] += 1;
                         }
                     }
-                    if ($tonTaiTrongGioHang == false) {
-                        $_SESSION['cart'][] = [
-                            'id' => $id,
-                            'quantity' => $quantity
-                        ];
+                    if (!$tonTaiTrongGioHang) {
+                        $_SESSION['cart'][] = ['id' => $id, 'quantity' => $quantity];
                     }
                 }
-                $script = "<script> 
-                window.location = '?url=cart&act=listCart';
-                </script>";
-                echo $script;
+
+                echo "<script>window.location = '?url=cart&act=listCart';</script>";
             }
             break;
-            case 'listCart';
-                include_once 'model/product.php';
-                if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
-                    $listCart = $_SESSION['cart'];
-                    $tongTien = 0;
-                    foreach ($listCart as $key => $item) {
-                        $productDetail = getProductByID($item['id']);
-                        $listCart[$key]['name'] = $productDetail['name'];
-                        $listCart[$key]['image'] = $productDetail['image'];
-                        $listCart[$key]['price'] = $productDetail['price'];
-                        $tongTien += $productDetail['price'] * $item['quantity'];
-                    }
-                    include_once 'views/layout/header.php';
-                    include_once 'views/listCart.php';
-                    include_once 'views/layout/footer.php';
-                } else {
-                    $script = "<script> 
-                    alert('Giỏ hàng đang trống !!!!!!');
-                    window.location = 'index.php';
-                    </script>";
-                    echo $script;
+        
+        case 'listCart':
+            include_once 'model/product.php';
+            if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+                $listCart = $_SESSION['cart'];
+                $tongTien = 0;
+                foreach ($listCart as $key => $item) {
+                    $productDetail = getProductByID($item['id']);
+                    $listCart[$key]['name'] = $productDetail['name'];
+                    $listCart[$key]['image'] = $productDetail['image'];
+                    $listCart[$key]['price'] = $productDetail['price'];
+                    $tongTien += $productDetail['price'] * $item['quantity'];
                 }
+                include_once 'views/layout/header.php';
+                include_once 'views/listCart.php';
+                include_once 'views/layout/footer.php';
+            } else {
+                echo "<script>alert('Giỏ hàng đang trống !!!!!!'); window.location = 'index.php';</script>";
+            }
             break;
-            case 'removeCart':
-                if (isset($_GET['id'])){
-                    $id = $_GET['id'];
-                    if (isset($_SESSION['cart'])) {
-                        foreach ($_SESSION['cart'] as $key => $item) {
-                            if ($id == $item['id']) {
-                                unset($_SESSION['cart'][$key]);
-                            }
+        
+        case 'removeCart':
+            if (isset($_GET['id'])) {
+                $id = $_GET['id'];
+                if (isset($_SESSION['cart'])) {
+                    foreach ($_SESSION['cart'] as $key => $item) {
+                        if ($id == $item['id']) {
+                            unset($_SESSION['cart'][$key]);
                         }
                     }
                 }
                 $_SESSION['cart'] = array_values($_SESSION['cart']);
                 header('location: ?url=cart&act=listCart');
-                break;
-            case 'checkout';
-                include_once 'model/product.php';
-                if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
-                    $listCart = $_SESSION['cart'];
-                    $tongTien = 0;
-                    foreach ($listCart as $key => $item) {
-                        $productDetail = getProductByID($item['id']);
-                        $listCart[$key]['name'] = $productDetail['name'];
-                        $listCart[$key]['image'] = $productDetail['image'];
-                        $listCart[$key]['price'] = $productDetail['price'];
-                        $tongTien += $productDetail['price'] * $item['quantity'];
+            }
+            break;
+        
+        case 'updateCart':
+            if (isset($_GET['id']) && isset($_GET['quantity'])) {
+                $id = $_GET['id'];
+                $quantity = $_GET['quantity'];
+
+                if (isset($_SESSION['cart'])) {
+                    foreach ($_SESSION['cart'] as $key => $item) {
+                        if ($item['id'] == $id) {
+                            $_SESSION['cart'][$key]['quantity'] = $quantity; // Cập nhật số lượng
+                        }
                     }
-                    include_once 'views/layout/header.php';
-                    include_once 'views/checkout.php';
-                    include_once 'views/layout/footer.php';
-                } else {
-                    $script = "<script> 
-                    alert('Giỏ hàng đang trống !!!!!!');
-                    window.location = 'index.php';
-                    </script>";
-                    echo $script;
                 }
-                break;
+                echo json_encode(['success' => true]);
+            }
+            break;
+        
+        case 'checkout':
+            include_once 'model/product.php';
+            if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+                $listCart = $_SESSION['cart'];
+                $tongTien = 0;
+                foreach ($listCart as $key => $item) {
+                    $productDetail = getProductByID($item['id']);
+                    $listCart[$key]['name'] = $productDetail['name'];
+                    $listCart[$key]['image'] = $productDetail['image'];
+                    $listCart[$key]['price'] = $productDetail['price'];
+                    $tongTien += $productDetail['price'] * $item['quantity'];
+                }
+                include_once 'views/layout/header.php';
+                include_once 'views/checkout.php';
+                include_once 'views/layout/footer.php';
+            } else {
+                echo "<script>alert('Giỏ hàng đang trống !!!!!!'); window.location = 'index.php';</script>";
+            }
+            break;
+        
             case 'addCheckout':
                 include_once 'model/product.php';
                 include_once 'model/checkout.php';
@@ -150,3 +160,4 @@ if (isset($_GET['act'])){
                 }
     }
 }
+?>
