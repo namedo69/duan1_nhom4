@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -25,6 +24,13 @@
     <link rel="stylesheet" href="asset/css/css.css" type="text/css">
 </head>
 
+<style>
+    .active > a {
+        font-weight: bold;
+        color: #ff9900;
+    }
+</style>
+
 <body>
 <!-- Page Preloder -->
 <div id="preloder">
@@ -50,7 +56,7 @@
             <div>English</div>
             <span class="arrow_carrot-down"></span>
             <ul>
-                <li><a href="#">Spanis</a></li>
+                <li><a href="#">Spanish</a></li>
                 <li><a href="#">English</a></li>
             </ul>
         </div>
@@ -60,18 +66,18 @@
     </div>
     <nav class="humberger__menu__nav mobile-menu">
         <ul>
-            <li class="active"><a href="?url=page&act=home">Home</a></li>
-            <li><a href="?url=product&act=listAll">Shop</a></li>
-            <li><a href="#">Pages</a>
-                <ul class="header__menu__dropdown">
-                    <li><a href="./shop-details.html">Shop Details</a></li>
-                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                    <li><a href="./checkout.html">Check Out</a></li>
-                    <li><a href="./blog-details.html">Blog Details</a></li>
-                </ul>
+            <li class="<?= (isset($_GET['url']) && $_GET['url'] == 'page&act=home') ? 'active' : '' ?>">
+                <a href="?url=page&act=home">Home</a>
             </li>
-            <li><a href="./blog.html">Blog</a></li>
-            <li><a href="./contact.html">Contact</a></li>
+            <li class="<?= (isset($_GET['url']) && strpos($_GET['url'], 'product') !== false) ? 'active' : '' ?>">
+                <a href="?url=product&act=listAll">Shop</a>
+            </li>
+            <li class="<?= (isset($_GET['url']) && strpos($_GET['url'], 'blog') !== false) ? 'active' : '' ?>">
+                <a href="./blog.html">Blog</a>
+            </li>
+            <li class="<?= (isset($_GET['url']) && $_GET['url'] == 'contact') ? 'active' : '' ?>">
+                <a href="?url=contact">Contact</a>
+            </li>
         </ul>
     </nav>
     <div id="mobile-menu-wrap"></div>
@@ -124,7 +130,7 @@
                                     <li><a href="?url=user&act=logout"> Đăng xuất </a></li>
                                 </ul>
                             </div>
-                            <?php } ?>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -140,28 +146,26 @@
             <div class="col-lg-6">
                 <nav class="header__menu">
                     <ul>
-                        <li class="active"><a href="?url=page&act=home">Home</a></li>
-                        <li><a href="?url=product&act=listAll">Shop</a></li>
-                        <li><a href="#">Pages</a>
-                            <ul class="header__menu__dropdown">
-                                <li><a href="./shop-details.html">Shop Details</a></li>
-                                <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                                <li><a href="./checkout.html">Check Out</a></li>
-                                <li><a href="./blog-details.html">Blog Details</a></li>
-                            </ul>
+                    <li class="<?= (isset($_GET['url']) && strpos($_GET['url'], 'page') !== false) ? 'active' : '' ?>">
+                            <a href="?url=page&act=home">Home</a>
                         </li>
-                        <li><a href="./blog.html">Blog</a></li>
-                        <li><a href="?url=contact">Contact</a></li>
+                        <li class="<?= (isset($_GET['url']) && strpos($_GET['url'], 'product') !== false) ? 'active' : '' ?>">
+                            <a href="?url=product&act=listAll">Shop</a>
+                        </li>
+                        <li class="<?= (isset($_GET['url']) && strpos($_GET['url'], 'about') !== false) ? 'active' : '' ?>">
+                            <a href="?url=about">About Us</a>
+                        </li>
+                        <li class="<?= (isset($_GET['url']) && $_GET['url'] == 'contact') ? 'active' : '' ?>">
+                            <a href="?url=contact">Contact</a>
+                        </li>
                     </ul>
                 </nav>
             </div>
             <div class="col-lg-3">
                 <div class="header__cart">
                     <ul>
-
                         <li><a href="?url=cart&act=listCart"><i class="fa fa-shopping-bag"></i> <span><?php echo $demsanpham ?></span></a></li>
                     </ul>
-                    
                 </div>
             </div>
         </div>
@@ -172,3 +176,6 @@
 </header>
 <!-- Header Section End -->
 
+</body>
+
+</html>

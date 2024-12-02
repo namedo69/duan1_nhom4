@@ -32,9 +32,9 @@
                         <div class="danhmuc_banner">
                             <ul class="hero-list">
                                
-                                    <?php foreach ($getAllCategory as $item){ ?>
+                                    <?php foreach ($getAllCategory as $item){if($item['status']==1){ ?>
                                         <li><a href="?url=category&act=detail&id=<?= $item['category_id'] ?>"> <?= $item['name'] ?></a></li>
-                                    <?php } ?>
+                                    <?php }} ?>
                             
                             </ul>
                             <ul class="hero-banner">
@@ -86,23 +86,31 @@
                 </div>
             </div>
             <div class="row featured__filter">
-                <?php foreach ($getNewProduct as $item) { ?>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="admin/upload/AnhNhanBan/product/<?= $item['image'] ?>">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="?url=cart&act=addToCart&id=<?= $item['product_id'] ?>"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="?url=product&act=detail&id=<?= $item['product_id'] ?>"><?= $item['name'] ?></a></h6>
-                            <h5><?= $item['price'] ?> Vnđ</h5>
-                        </div>
-                    </div>
-                </div>
-                <?php } ?>
+                                 <?php 
+                                $dem = 0; 
+                                foreach ($getMostComment as $item) {
+                                    if ($dem <= 8 && $item['status'] == 1) {  // Kiểm tra nếu $dem < 4 và $item['status'] == 1
+                                        $dem++;  // Tăng biến $dem khi điều kiện đúng
+                                ?>
+                                    <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+                                        <div class="featured__item">
+                                            <div class="featured__item__pic set-bg" data-setbg="admin/upload/AnhNhanBan/product/<?= $item['image'] ?>">
+                                                <ul class="featured__item__pic__hover">
+                                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                                    <li><a href="?url=cart&act=addToCart&id=<?= $item['product_id'] ?>"><i class="fa fa-shopping-cart"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="featured__item__text">
+                                                <h6><a href="?url=product&act=detail&id=<?= $item['product_id'] ?>"><?= $item['name'] ?></a></h6>
+                                                <h5><?= $item['price'] ?> Vnđ</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php 
+                                    }
+                                }
+                                ?>
             </div>
         </div>
     </section>
@@ -136,17 +144,26 @@
                         <h4>Latest Products</h4>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
-                                <?php foreach ($getLatestProduct as $item) { ?>
-                                <a href="?url=product&act=detail&id=<?= $item['product_id'] ?>" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="admin/upload/AnhNhanBan/product/<?= $item['image'] ?>" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6><?= $item['name'] ?></h6>
-                                        <span><?= $item['price'] ?> Vnđ</span>
-                                    </div>
-                                </a>
-                                <?php } ?>
+                            <?php 
+                                $dem = 0; 
+                                foreach ($getLatestProduct as $item) {
+                                    if ($dem <= 4 && $item['status'] == 1) {  // Kiểm tra nếu $dem < 4 và $item['status'] == 1
+                                        $dem++;  // Tăng biến $dem khi điều kiện đúng
+                                ?>
+                                        <a href="?url=product&act=detail&id=<?= $item['product_id'] ?>" class="latest-product__item">
+                                            <div class="latest-product__item__pic">
+                                                <img src="admin/upload/AnhNhanBan/product/<?= $item['image'] ?>" alt="">
+                                            </div>
+                                            <div class="latest-product__item__text">
+                                                <h6><?= $item['name'] ?></h6>
+                                                <span><?= number_format($item['price']) ?> Vnđ</span> <!-- Format giá trị -->
+                                            </div>
+                                        </a>
+                                <?php 
+                                    }
+                                }
+                                ?>
+
                             </div>
                         </div>
                     </div>
@@ -156,17 +173,26 @@
                         <h4>Top Views Products</h4>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
-                                <?php foreach ($getProductByView as $item){ ?>
-                                <a href="?url=product&act=detail&id=<?= $item['product_id'] ?>" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="admin/upload/AnhNhanBan/product/<?= $item['image'] ?>" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6><?= $item['name'] ?></h6>
-                                        <span><?= $item['price'] ?> Vnđ</span>
-                                    </div>
-                                </a>
-                                <?php } ?>
+                            <?php 
+                                $dem = 0; 
+                                foreach ($getProductByView as $item) {
+                                    if ($dem <= 4 && $item['status'] == 1) {  // Kiểm tra nếu $dem < 4 và $item['status'] == 1
+                                        $dem++;  // Tăng biến $dem khi điều kiện đúng
+                                ?>
+                                        <a href="?url=product&act=detail&id=<?= $item['product_id'] ?>" class="latest-product__item">
+                                            <div class="latest-product__item__pic">
+                                                <img src="admin/upload/AnhNhanBan/product/<?= $item['image'] ?>" alt="">
+                                            </div>
+                                            <div class="latest-product__item__text">
+                                                <h6><?= $item['name'] ?></h6>
+                                                <span><?= number_format($item['price']) ?> Vnđ</span> <!-- Format giá trị -->
+                                            </div>
+                                        </a>
+                                <?php 
+                                    }
+                                }
+                                ?>
+
                             </div>
                         </div>
                     </div>
@@ -176,17 +202,26 @@
                         <h4>Review Products</h4>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
-                                <?php foreach ($getMostComment as $item){ ?>
-                                <a href="?url=product&act=detail&id=<?= $item['product_id'] ?>" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="admin/upload/AnhNhanBan/product/<?= $item['image'] ?>" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6><?= $item['name'] ?></h6>
-                                        <span><?= $item['price'] ?> Vnđ</span>
-                                    </div>
-                                </a>
-                                <?php } ?>
+                            <?php 
+                                $dem = 0; 
+                                foreach ($getMostComment as $item) {
+                                    if ($dem <= 4 && $item['status'] == 1) {  // Kiểm tra nếu $dem < 4 và $item['status'] == 1
+                                        $dem++;  // Tăng biến $dem khi điều kiện đúng
+                                ?>
+                                        <a href="?url=product&act=detail&id=<?= $item['product_id'] ?>" class="latest-product__item">
+                                            <div class="latest-product__item__pic">
+                                                <img src="admin/upload/AnhNhanBan/product/<?= $item['image'] ?>" alt="">
+                                            </div>
+                                            <div class="latest-product__item__text">
+                                                <h6><?= $item['name'] ?></h6>
+                                                <span><?= number_format($item['price']) ?> Vnđ</span> <!-- Format giá trị -->
+                                            </div>
+                                        </a>
+                                <?php 
+                                    }
+                                }
+                                ?>
+
                             </div>
                         </div>
                     </div>

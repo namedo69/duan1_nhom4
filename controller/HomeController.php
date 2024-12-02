@@ -5,10 +5,10 @@ if (isset($_GET['act'])) {
         case 'home':
             include_once 'model/product.php';
 
-            $getNewProduct = getNewProduct(8);
-            $getLatestProduct = getNewProduct(5);
-            $getProductByView = getProductByView(5);
-            $getMostComment = getMostCommentProduct(5);
+            $getNewProduct = getNewProduct();
+            $getLatestProduct = getNewProduct();
+            $getProductByView = getProductByView();
+            $getMostComment = getMostCommentProduct();
             include_once 'controller/CartController.php';
             if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
                 function countCartItems2() {
