@@ -3545,3 +3545,6 @@ ol {
 	color:red;
 }
   
+.profile{
+	display:flex;
+}

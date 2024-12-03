@@ -13,3 +13,28 @@ function addCheckoutDetail($bill_id, $product_id, $quantity, $price)
     $sql = "INSERT INTO bill_detail (bill_id, product_id, quantity, price) VALUES ('$bill_id', '$product_id', '$quantity', '$price')";
     return pdo_execute($sql);
 }
+
+
+function getBillByClientId()
+{
+    $clientId = $_SESSION['user']['client_id'];  // Get the client_id from the session
+    $sql = "SELECT * FROM bill WHERE client_id = $clientId";  // Proper string concatenation
+    return pdo_query($sql);
+}
+
+function getAllChiTietDonHang($id)
+{
+    $sql = "select * from bill_detail where bill_id = $id";
+    return pdo_query($sql);
+}
+
+function getSanPhamById($id)
+{
+    $sql = "select * from product where product_id=$id";
+    return pdo_query_one($sql);
+}
+function getHoaDonById($id)
+{
+    $sql = "select * from bill where id = $id";
+    return pdo_query_one($sql);
+}

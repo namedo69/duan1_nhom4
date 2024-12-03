@@ -26,7 +26,7 @@ if (isset($_GET['act'])) {
                         // Nếu tài khoản còn hoạt động
                         $script = "<script> 
                         alert('Đăng nhập thành công!');
-                        window.location = 'index.php?url=user&act=login';
+                        window.location = 'index.php?url=page&act=home';
                         </script>";
                         echo $script;
                         exit;  // Thêm exit để ngừng thực thi mã sau khi chuyển hướng

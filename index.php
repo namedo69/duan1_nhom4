@@ -1,6 +1,7 @@
 
 <?php
-
+date_default_timezone_set('Asia/Ho_Chi_Minh');
+$base_url = "http://" . $_SERVER['SERVER_NAME'] . dirname($_SERVER["REQUEST_URI"] . '?') . '/';
 include_once 'config.php';
 include_once 'model/pdo.php';
 include_once 'model/category.php';
@@ -27,6 +28,9 @@ if (isset($_GET['url'])) {
             break;
         case 'about':
             include_once 'controller/AboutController.php';
+            break;
+        case 'profile':
+            include_once 'controller/ProfileController.php';
             break;
     }
 } else {
