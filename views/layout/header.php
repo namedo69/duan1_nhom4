@@ -126,7 +126,7 @@
                                 <div>Xin chào, <?= $_SESSION['user']['name'] ?></div>
                                 <span class="arrow_carrot-down"></span>
                                 <ul>
-                                    <li><a href="#">Tài khoản</a></li>
+                                    <li><a href="?url=profile&act=detail">Tài khoản</a></li>
                                     <li><a href="?url=user&act=logout"> Đăng xuất </a></li>
                                 </ul>
                             </div>
