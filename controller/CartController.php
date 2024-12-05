@@ -11,7 +11,7 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
     function countCartItems() {
         return count($_SESSION['cart']);
     }
-    
+
     $demsanpham = countCartItems();
 } else {
     $demsanpham = 0;
@@ -20,10 +20,10 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
 if (isset($_GET['act'])) {
     switch ($_GET['act']) {
         case 'addToCart':
-            if (isset($_GET['id'])) {
-                $id = $_GET['id'];
-                $quantity = 1;
-                
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $id = $_POST['id'];
+                $quantity = $_POST['quantity'];
+
                 if (!isset($_SESSION['cart'])) {
                     $_SESSION['cart'] = [];
                     $_SESSION['cart'][] = ['id' => $id, 'quantity' => $quantity];
@@ -32,7 +32,7 @@ if (isset($_GET['act'])) {
                     foreach ($_SESSION['cart'] as $key => $value) {
                         if ($id == $value['id']) {
                             $tonTaiTrongGioHang = true;
-                            $_SESSION['cart'][$key]['quantity'] += 1;
+                            $_SESSION['cart'][$key]['quantity'] += $quantity;
                         }
                     }
                     if (!$tonTaiTrongGioHang) {
@@ -43,7 +43,7 @@ if (isset($_GET['act'])) {
                 echo "<script>window.location = '?url=cart&act=listCart';</script>";
             }
             break;
-        
+
         case 'listCart':
             include_once 'model/product.php';
             if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
@@ -63,7 +63,7 @@ if (isset($_GET['act'])) {
                 echo "<script>alert('Giỏ hàng đang trống !!!!!!'); window.location = 'index.php';</script>";
             }
             break;
-        
+
         case 'removeCart':
             if (isset($_GET['id'])) {
                 $id = $_GET['id'];
@@ -78,7 +78,7 @@ if (isset($_GET['act'])) {
                 header('location: ?url=cart&act=listCart');
             }
             break;
-        
+
         case 'updateCart':
             if (isset($_GET['id']) && isset($_GET['quantity'])) {
                 $id = $_GET['id'];
@@ -87,14 +87,14 @@ if (isset($_GET['act'])) {
                 if (isset($_SESSION['cart'])) {
                     foreach ($_SESSION['cart'] as $key => $item) {
                         if ($item['id'] == $id) {
-                            $_SESSION['cart'][$key]['quantity'] = $quantity; // Cập nhật số lượng
+                            $_SESSION['cart'][$key]['quantity'] = $quantity;
                         }
                     }
                 }
                 echo json_encode(['success' => true]);
             }
             break;
-        
+
         case 'checkout':
             include_once 'model/product.php';
             if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
@@ -114,7 +114,7 @@ if (isset($_GET['act'])) {
                 echo "<script>alert('Giỏ hàng đang trống !!!!!!'); window.location = 'index.php';</script>";
             }
             break;
-        
+
             case 'addCheckout':
                 include_once 'model/product.php';
                 include_once 'model/checkout.php';
@@ -145,19 +145,17 @@ if (isset($_GET['act'])) {
                         $client_id = $_SESSION['user']['client_id'];
                     }
                     $bill_id = addCheckout($client_id, $name, $phone, $email, $address, $tongTien, $pay, $status);
-
                     foreach ($listCart as $item) {
                         addCheckoutDetail($bill_id, $item['id'], $item['quantity'], $item['price']);
                     }
 
                     unset($_SESSION['cart']);
-                    $script = "<script> 
-                alert('Bạn đã đặt hàng thành công');
-                window.location = 'index.php';
-                </script>";
+                    $script = "<script> alert('Bạn đã đặt hàng thành công');
+                    window.location = 'index.php'; 
+                    </script>";
                     echo $script;
-                    break;
                 }
+                break;
     }
 }
-?>
+

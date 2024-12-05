@@ -23,6 +23,7 @@ if (isset($_GET['url'])) {
             break;
         case 'cart':
             include_once 'controller/CartController.php';
+            break;
         case 'contact':
             include_once 'controller/ContactController.php';
             break;

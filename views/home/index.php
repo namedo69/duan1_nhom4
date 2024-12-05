@@ -96,9 +96,11 @@
                                         <div class="featured__item">
                                             <div class="featured__item__pic set-bg" data-setbg="admin/upload/AnhNhanBan/product/<?= $item['image'] ?>">
                                                 <ul class="featured__item__pic__hover">
-                                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                                    <li><a href="?url=cart&act=addToCart&id=<?= $item['product_id'] ?>"><i class="fa fa-shopping-cart"></i></a></li>
+                                                    <form action="?url=cart&act=addToCart" method="post">
+                                                        <input type="hidden" name="id" value="<?= $item['product_id'] ?>">
+                                                        <input type="hidden" name="quantity" value="1">
+                                                        <button type="submit" class="primary-btn">Thêm vào giỏ hàng</button>
+                                                    </form>
                                                 </ul>
                                             </div>
                                             <div class="featured__item__text">
@@ -221,7 +223,6 @@
                                     }
                                 }
                                 ?>
-
                             </div>
                         </div>
                     </div>
