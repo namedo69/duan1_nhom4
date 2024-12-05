@@ -4,17 +4,26 @@
             <!-- container_profile -->
             <div class="col-md-4">
                 <div class="card" style="width: 100%;">
-                    <img src="<?= 'admin/upload/AnhNhanBan/client/'.$_SESSION['user']['image'] ?>" class="card-img-top" alt="Hình ảnh người dùng">
+                    <img src="<?php 
+if ($clientInfor['image'] == 'avatarDefault.jpg') {
+    // Nếu image là avatarDefault.jpg
+    echo 'admin/upload/AnhGoc/client/avatarDefault.jpg';
+} else {
+    // Nếu image không phải là avatarDefault.jpg
+    echo 'admin/upload/AnhNhanBan/client/' . $clientInfor['image'];
+}
+?>
+" class="card-img-top" alt="Hình ảnh người dùng">
                     <div class="card-body">
                         <h5 class="card-title">Thông tin </h5>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><strong>Họ tên: </strong><br><?= $_SESSION['user']['name'] ?></li>
-                            <li class="list-group-item"><strong>Email: </strong><br> <?= $_SESSION['user']['email'] ?></li>
-                            <li class="list-group-item"><strong>Địa chỉ:</strong><br><?= $_SESSION['user']['address'] ?> </li>
-                            <li class="list-group-item"><strong>Ngày sinh:</strong><br><?= $_SESSION['user']['birthday'] ?> </li>
-                            <li class="list-group-item"><strong>Số điện thoại:</strong><br><?= $_SESSION['user']['number'] ?></li>
+                            <li class="list-group-item"><strong>Họ tên: </strong><br><?= $clientInfor['name'] ?></li>
+                            <li class="list-group-item"><strong>Email: </strong><br> <?= $clientInfor['email'] ?></li>
+                            <li class="list-group-item"><strong>Địa chỉ:</strong><br><?= $clientInfor['address'] ?> </li>
+                            <li class="list-group-item"><strong>Ngày sinh:</strong><br><?= $clientInfor['birthday'] ?> </li>
+                            <li class="list-group-item"><strong>Số điện thoại:</strong><br><?= $clientInfor['number'] ?></li>
                         </ul>
-                        <a href="index.php?url=profile&act=edit&id=<?= $_SESSION['user']['client_id'] ?>" class="btn btn-primary mt-3">Cập nhật thông tin</a>
+                        <a href="index.php?url=profile&act=edit&id=<?= $clientInfor['client_id'] ?>" class="btn btn-primary mt-3">Cập nhật thông tin</a>
                     </div>
                 </div>
             </div>
@@ -25,7 +34,7 @@
                     <div class="page-title">
                         <div class="row">
                             <div class="col-12 col-md-6 order-md-1 order-last">
-                                <h3>Danh sách hóa đơn</h3>
+                                <h3>Lịch sử mua hàng</h3>
                             </div>
                         </div>
                     </div>

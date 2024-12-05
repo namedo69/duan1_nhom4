@@ -64,20 +64,44 @@ if (isset($_GET['act'])) {
             break;
         
         case 'register':
-            if (isset($_POST['submit'])){
-                $name = $_POST['name'];
-                $email = $_POST['email'];
-                $password = $_POST['password'];
-                $hasEmail = hasEmail($email);
-                if ($hasEmail) {
-                    $_SESSION['error'] = 'Email này đã được đăng kí!';
-                } else {
-                    $username = $email;
-                    $image = 'default.png';
-                    $role = 1;
-                    userRegister($username, $password, $name, $email, $image, $role);
-                    header('Location: ?url=user&act=login');
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                // Lấy thông tin từ form
+                $username = trim($_POST['username']);
+                $password = trim($_POST['password']);
+                $name = trim($_POST['name']);
+                $email = trim($_POST['email']);
+                
+                // Kiểm tra xem email có tồn tại hay chưa
+                if (hasEmail($name)) {
+                    $script = "<script> 
+                    alert('Tên tài khoản đã được đăng kí');
+                    window.location = 'index.php?url=user&act=login';
+                    </script>";
+                    echo $script; // Chuyển hướng lại trang đăng nhập
+                    exit;
+                } else { 
+                    $fileName = null;
+                    if (isset($_FILES['image']) && $_FILES['image']['name'] != '') {
+                        $filePath = 'admin/upload/AnhNhanBan/client/';
+                
+                        $fileName = date("Y_m_d_H_i_s") . $_FILES['image']['name'];
+                        // Xóa file cũ nếu có. Gợi ý if (file_exist())
+                        move_uploaded_file($_FILES['image']['tmp_name'], $filePath . $fileName);
+                    // Kiểm tra nếu file đã tồn tại (tùy chọn: có thể thêm kiểm tra để xóa file cũ nếu cần)
+                    if (file_exists($filePath . $image)) {
+                        unlink($filePath . $image); // Xóa ảnh
+                    }
+
+                    }
+                    addClient($username, $password, $name, $email,$fileName);
+                    $script = "<script> 
+                    alert('Đăng kí thành công!');
+                    window.location = 'index.php?url=user&act=login';
+                    </script>";
+                    echo $script; // Chuyển hướng lại trang đăng nhập
+                    exit;
                 }
+
             }
             include_once 'controller/CartController.php';
             if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {

@@ -8,13 +8,18 @@ function userLogin($username, $password)
 function hasEmail($email){
  return pdo_query_one("SELECT * FROM client WHERE email = '$email'");
 }
-function userRegister($username, $password, $name, $email, $image, $role) {
-    $sql = "INSERT INTO client (username, password, name, email, image, role) VALUES ('$username', '$password', '$name', '$email', '$image', '$role')";
-    return pdo_execute($sql);
+function userRegister($username, $password, $name, $email,$fileName) {
+    // Thiết lập giá trị mặc định
+    $role = 1;  // Vai trò mặc định là 1 (người dùng bình thường)
+    $status = 1;  // Trạng thái mặc định là 1 (tài khoản hoạt động)
+  // Ảnh đại diện mặc định
+
+    // Chèn tài khoản mới vào cơ sở dữ liệu
+    $sql = "INSERT INTO client (username, password, name, email, image, role, status,address, number, birthday) 
+            VALUES ('$username', '$password', '$name', '$email', '$fileName', '$role', '$status','Chưa thêm','Chưa thêm','Chưa thêm')";
+    return pdo_execute($sql);  // Gọi hàm để thực hiện câu lệnh SQL
 }
 
-
-include_once 'pdo.php';
 
 function listClient()
 {
@@ -22,15 +27,15 @@ function listClient()
     return pdo_query($sql);
 }
 
-function addClient($username, $password, $name, $email,$role ,$fileName)
+function addClient($username, $password, $name, $email,$fileName)
 {
    
   if($fileName==null){
-    $sql = "INSERT INTO client (username, password, name, email,image,role) 
-            VALUES ('$username', '$password', '$name', '$email','avatarDefault.jpg',$role)";
+    $sql = "INSERT INTO client (username, password, name, email,image) 
+            VALUES ('$username', '$password', '$name', '$email','avatarDefault.jpg')";
   } else {
-    $sql = "INSERT INTO client (username, password, name, email,image,role) 
-            VALUES ('$username', '$password', '$name', '$email','$fileName',$role)";
+    $sql = "INSERT INTO client (username, password, name, email,image) 
+            VALUES ('$username', '$password', '$name', '$email','$fileName')";
   }
     
 
@@ -46,23 +51,16 @@ function getClientById($id)
     return pdo_query_one($sql);
 }
 
-function editClient($id, $username, $password, $name, $email, $role, $fileName, $address, $number, $birthday)
+function editClient($id, $password, $name, $email,$fileName,$address,$number,$birthday)
 {
     if ($fileName == null) {
-        // Cập nhật thông tin người dùng mà không thay đổi ảnh
-        $sql = "UPDATE client 
-                SET username = '$username', password = '$password', name = '$name', email = '$email', role = '$role', address = '$address', number = '$number', birthday = '$birthday' 
-                WHERE client_id = '$id'";
+        $sql = "update client set password='$password', name='$name',email='$email',address='$address',number='$number',birthday='$birthday' where client_id='$id'";
         pdo_execute($sql);
     } else {
-        // Cập nhật thông tin người dùng và thay đổi ảnh
-        $sql = "UPDATE client 
-                SET username = '$username', password = '$password', name = '$name', email = '$email', role = '$role', image = '$fileName', address = '$address', number = '$number', birthday = '$birthday' 
-                WHERE client_id = '$id'";
+        $sql = "update client set password='$password', name='$name',email='$email', address='$address',number='$number',birthday='$birthday', image='$fileName' where client_id='$id'";
         pdo_execute($sql);
-    }
 }
-
+}
 
 
 function changeStatusNguoiDung($id, $status)
