@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="vi">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Ogani Template">
-    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="description" content="Mẫu Ogani">
+    <meta name="keywords" content="Ogani, unica, sáng tạo, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ogani | Template</title>
+    <title>Ogani | Mẫu</title>
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -49,35 +49,35 @@
             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
             <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
         </ul>
-        <div class="header__cart__price">item: <span>$150.00</span></div>
+        <div class="header__cart__price">Mặt hàng: <span>$150.00</span></div>
     </div>
     <div class="humberger__menu__widget">
         <div class="header__top__right__language">
             <img src="img/language.png" alt="">
-            <div>English</div>
+            <div>Tiếng Anh</div>
             <span class="arrow_carrot-down"></span>
             <ul>
-                <li><a href="#">Spanish</a></li>
-                <li><a href="#">English</a></li>
+                <li><a href="#">Tiếng Tây Ban Nha</a></li>
+                <li><a href="#">Tiếng Anh</a></li>
             </ul>
         </div>
         <div class="header__top__right__auth">
-            <a href="#"><i class="fa fa-user"></i> Login</a>
+            <a href="#"><i class="fa fa-user"></i> Đăng nhập</a>
         </div>
     </div>
     <nav class="humberger__menu__nav mobile-menu">
         <ul>
             <li class="<?= (isset($_GET['url']) && $_GET['url'] == 'page&act=home') ? 'active' : '' ?>">
-                <a href="?url=page&act=home">Home</a>
+                <a href="?url=page&act=home">Trang Chủ</a>
             </li>
             <li class="<?= (isset($_GET['url']) && strpos($_GET['url'], 'product') !== false) ? 'active' : '' ?>">
-                <a href="?url=product&act=listAll">Shop</a>
+                <a href="?url=product&act=listAll">Cửa Hàng</a>
             </li>
             <li class="<?= (isset($_GET['url']) && strpos($_GET['url'], 'blog') !== false) ? 'active' : '' ?>">
                 <a href="./blog.html">Blog</a>
             </li>
             <li class="<?= (isset($_GET['url']) && $_GET['url'] == 'contact') ? 'active' : '' ?>">
-                <a href="?url=contact">Contact</a>
+                <a href="?url=contact">Liên Hệ</a>
             </li>
         </ul>
     </nav>
@@ -90,8 +90,7 @@
     </div>
     <div class="humberger__menu__contact">
         <ul>
-            <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-            <li>Free Shipping for all Order of $99</li>
+        <li><i class="fa fa-envelope"></i> luonghvpp03220@gmail.com (đại diện nhóm)</li>
         </ul>
     </div>
 </div>
@@ -105,8 +104,7 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="header__top__left">
                         <ul>
-                            <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                            <li>Free Shipping for all Order of $99</li>
+                        <li><i class="fa fa-envelope"></i> luonghvpp03220@gmail.com (đại diện nhóm)</li>
                         </ul>
                     </div>
                 </div>
@@ -120,7 +118,7 @@
                         </div>
                         <?php if (!isset($_SESSION['user'])) { ?>
                             <div class="header__top__right__auth">
-                                <a href="?url=user&act=login"><i class="fa fa-user"></i> Login</a>
+                                <a href="?url=user&act=login"><i class="fa fa-user"></i> Đăng nhập</a>
                             </div>
                         <?php } else {  ?>
                             <div class="header__top__right__language">
@@ -128,7 +126,7 @@
                                 <span class="arrow_carrot-down"></span>
                                 <ul>
                                     <li><a href="?url=profile&act=detail">Tài khoản</a></li>
-                                    <li><a href="?url=user&act=logout"> Đăng xuất </a></li>
+                                    <li><a href="?url=user&act=logout">Đăng xuất</a></li>
                                 </ul>
                             </div>
                         <?php } ?>
@@ -147,17 +145,17 @@
             <div class="col-lg-6">
                 <nav class="header__menu">
                     <ul>
-                    <li class="<?= (isset($_GET['url']) && strpos($_GET['url'], 'page') !== false) ? 'active' : '' ?>">
-                            <a href="?url=page&act=home">Home</a>
+                        <li class="<?= (isset($_GET['url']) && strpos($_GET['url'], 'page') !== false) ? 'active' : '' ?>">
+                            <a href="?url=page&act=home">Trang Chủ</a>
                         </li>
                         <li class="<?= (isset($_GET['url']) && strpos($_GET['url'], 'product') !== false) ? 'active' : '' ?>">
-                            <a href="?url=product&act=listAll">Shop</a>
+                            <a href="?url=product&act=listAll">Cửa Hàng</a>
                         </li>
                         <li class="<?= (isset($_GET['url']) && strpos($_GET['url'], 'about') !== false) ? 'active' : '' ?>">
-                            <a href="?url=about">About Us</a>
+                            <a href="?url=about">Về Chúng Tôi</a>
                         </li>
                         <li class="<?= (isset($_GET['url']) && $_GET['url'] == 'contact') ? 'active' : '' ?>">
-                            <a href="?url=contact">Contact</a>
+                            <a href="?url=contact">Liên Hệ</a>
                         </li>
                     </ul>
                 </nav>

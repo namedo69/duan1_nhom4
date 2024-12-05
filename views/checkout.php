@@ -42,7 +42,7 @@
                                 <?php } ?>
                             </ul>
                             <div class="checkout__order__subtotal">Phí ship<span>20,000VND</span></div>
-                            <div class="checkout__order__total">Total <span><?= number_format($tongTien + 20000) ?>VND</span></div>
+                            <div class="checkout__order__total">Tổng tiền <span><?= number_format($tongTien + 20000) ?> VNĐ</span></div>
                             <div class="checkout__input__checkbox">
                                 <label for="tienmat"> Tiền mặt </label>
                                 <input type="radio" checked name="pay" value="0" id="tienmat">

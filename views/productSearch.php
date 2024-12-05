@@ -1,19 +1,22 @@
-
 <section class="product spad">
     <div class="container">
         <div class="row">
+            <!-- Sidebar Section -->
             <div class="col-lg-3 col-md-5">
                 <div class="sidebar">
+                    <!-- Department Filter -->
                     <div class="sidebar__item">
-                        <h4>Department</h4>
+                        <h4>Danh mục</h4>
                         <ul>
                             <?php foreach ($listCategory as $item){ ?>
                                 <li><a href="?url=category&act=detail&id=<?= $item['category_id'] ?>"><?= $item['name'] ?></a></li>
                             <?php } ?>
                         </ul>
                     </div>
+
+                    <!-- Price Range Filter -->
                     <div class="sidebar__item">
-                        <h4>Price</h4>
+                        <h4>Giá</h4>
                         <div class="price-range-wrap">
                             <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
                                  data-min="10" data-max="540">
@@ -23,80 +26,86 @@
                             </div>
                             <div class="range-slider">
                                 <div class="price-input">
-                                    <input type="text" id="minamount">
-                                    <input type="text" id="maxamount">
+                                    <input type="text" id="minamount" placeholder="Từ">
+                                    <input type="text" id="maxamount" placeholder="Đến">
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Color Filter -->
                     <div class="sidebar__item sidebar__item__color--option">
-                        <h4>Colors</h4>
+                        <h4>Màu sắc</h4>
                         <div class="sidebar__item__color sidebar__item__color--white">
                             <label for="white">
-                                White
+                                Trắng
                                 <input type="radio" id="white">
                             </label>
                         </div>
                         <div class="sidebar__item__color sidebar__item__color--gray">
                             <label for="gray">
-                                Gray
+                                Xám
                                 <input type="radio" id="gray">
                             </label>
                         </div>
                         <div class="sidebar__item__color sidebar__item__color--red">
                             <label for="red">
-                                Red
+                                Đỏ
                                 <input type="radio" id="red">
                             </label>
                         </div>
                         <div class="sidebar__item__color sidebar__item__color--black">
                             <label for="black">
-                                Black
+                                Đen
                                 <input type="radio" id="black">
                             </label>
                         </div>
                         <div class="sidebar__item__color sidebar__item__color--blue">
                             <label for="blue">
-                                Blue
+                                Xanh dương
                                 <input type="radio" id="blue">
                             </label>
                         </div>
                         <div class="sidebar__item__color sidebar__item__color--green">
                             <label for="green">
-                                Green
+                                Xanh lá
                                 <input type="radio" id="green">
                             </label>
                         </div>
                     </div>
+
+                    <!-- Size Filter -->
                     <div class="sidebar__item">
-                        <h4>Popular Size</h4>
+                        <h4>Size phổ biến</h4>
                         <div class="sidebar__item__size">
                             <label for="large">
-                                Large
+                                Lớn
                                 <input type="radio" id="large">
                             </label>
                         </div>
                         <div class="sidebar__item__size">
                             <label for="medium">
-                                Medium
+                                Trung bình
                                 <input type="radio" id="medium">
                             </label>
                         </div>
                         <div class="sidebar__item__size">
                             <label for="small">
-                                Small
+                                Nhỏ
                                 <input type="radio" id="small">
                             </label>
                         </div>
                         <div class="sidebar__item__size">
                             <label for="tiny">
-                                Tiny
+                                Rất nhỏ
                                 <input type="radio" id="tiny">
                             </label>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Product Results Section -->
             <div class="col-lg-9 col-md-7">
                 <h3 class="font-weight-bolder">Kết quả tìm kiếm với "<?= $_GET['keyword'] ?>": </h3>
                 <div class="filter__item">
@@ -118,12 +127,14 @@
                                 </div>
                                 <div class="product__item__text">
                                     <h6><a href="?url=product&act=detail&id=<?= $item['product_id'] ?>"><?= $item['name'] ?></a></h6>
-                                    <h5>$<?= $item['price'] ?></h5>
+                                    <h5><?= number_format($item['price'], 0, '.', ',') ?> VND</h5>
                                 </div>
                             </div>
                         </div>
                     <?php } ?>
                 </div>
+
+                <!-- Pagination -->
                 <div class="product__pagination">
                     <a href="#">1</a>
                     <a href="#">2</a>
@@ -134,4 +145,3 @@
         </div>
     </div>
 </section>
-

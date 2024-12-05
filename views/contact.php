@@ -1,4 +1,3 @@
-
 <!-- Breadcrumb Section End -->
 
 <!-- Contact Section Begin -->
@@ -46,8 +45,8 @@
         <div class="inside-widget">
             <h4>Hải Phòng</h4>
             <ul>
-                <li>Phone: 0392.051.825</li>
-                <li>Địa chỉ : 271 Lê Thánh Tông, Ngô Quyền, Hải Phòng</li>
+                <li>Điện thoại: 0392.051.825</li>
+                <li>Địa chỉ: 271 Lê Thánh Tông, Ngô Quyền, Hải Phòng</li>
             </ul>
         </div>
     </div>
@@ -60,23 +59,24 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="contact__form__title">
-                    <h2>Leave Message</h2>
+                    <h2>Gửi Tin Nhắn</h2> <!-- "Leave Message" -> "Gửi Tin Nhắn" -->
                 </div>
             </div>
         </div>
         <form action="#" method="post">
             <div class="row">
                 <div class="col-lg-6 col-md-6">
-                    <input type="text" placeholder="Your name" name="name" />
+                    <input type="text" placeholder="Tên của bạn" name="name" /> <!-- "Your name" -> "Tên của bạn" -->
                 </div>
                 <div class="col-lg-6 col-md-6">
-                    <input type="text" placeholder="Your Email" name="email" />
+                    <input type="text" placeholder="Email của bạn" name="email" /> <!-- "Your Email" -> "Email của bạn" -->
                 </div>
                 <div class="col-lg-12 text-center">
-                    <textarea name="message" placeholder="Your message"></textarea>
-                    <button type="submit" class="site-btn" name="send">SEND MESSAGE</button>
+                    <textarea name="message" placeholder="Tin nhắn của bạn"></textarea> <!-- "Your message" -> "Tin nhắn của bạn" -->
+                    <button type="submit" class="site-btn" name="send">GỬI TIN NHẮN</button> <!-- "SEND MESSAGE" -> "GỬI TIN NHẮN" -->
                 </div>
             </div>
         </form>
     </div>
 </div>
+<!-- Contact Form End -->

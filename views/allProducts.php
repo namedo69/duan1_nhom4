@@ -1,11 +1,10 @@
-
 <section class="product spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-5">
                     <div class="sidebar">
                         <div class="sidebar__item">
-                            <h4>Department</h4>
+                            <h4>Danh mục</h4> <!-- "Department" -> "Danh mục" -->
                             <ul>
                                 <?php foreach ($listCategory as $item){if($item['status']==1){ ?>
                                 <li><a href="?url=category&act=detail&id=<?= $item['category_id'] ?>"><?= $item['name'] ?></a></li>
@@ -25,7 +24,7 @@
                     </div>
                 </div>
                 <div class="col-lg-9 col-md-7">
-                    <h3 class="font-weight-bolder">Shop</h3>
+                    <h3 class="font-weight-bolder">Cửa hàng</h3> <!-- "Shop" -> "Cửa hàng" -->
                     <div class="filter__item">
                         <div class="row">
                            
@@ -40,13 +39,13 @@
                                         <form action="?url=cart&act=addToCart" method="post">
                                             <input type="hidden" name="id" value="<?= $item['product_id'] ?>">
                                             <input type="hidden" name="quantity" value="1">
-                                            <button type="submit" class="primary-btn">Thêm vào giỏ hàng</button>
+                                            <button type="submit" class="primary-btn">Thêm vào giỏ hàng</button> <!-- "Add to cart" -> "Thêm vào giỏ hàng" -->
                                         </form>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
                                     <h6><a href="?url=product&act=detail&id=<?= $item['product_id'] ?>"><?= $item['name'] ?></a></h6>
-                                    <h5>$<?= $item['price'] ?></h5>
+                                    <h5><?= $item['price'] ?> VNĐ</h5>
                                 </div>
                             </div>
                         </div>

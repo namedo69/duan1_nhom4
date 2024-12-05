@@ -31,11 +31,11 @@ function addClient($username, $password, $name, $email,$fileName)
 {
    
   if($fileName==null){
-    $sql = "INSERT INTO client (username, password, name, email,image) 
-            VALUES ('$username', '$password', '$name', '$email','avatarDefault.jpg')";
+    $sql = "INSERT INTO client (username, password, name, email,image,address,birthday) 
+            VALUES ('$username', '$password', '$name', '$email','avatarDefault.jpg','Chưa thêm','Chưa thêm')";
   } else {
     $sql = "INSERT INTO client (username, password, name, email,image) 
-            VALUES ('$username', '$password', '$name', '$email','$fileName')";
+            VALUES ('$username', '$password', '$name', '$email','$fileName','Chưa thêm','Chưa thêm')";
   }
     
 
