@@ -28,14 +28,13 @@
                         <div class="product__details__price">$<?= $productDetail['price'] ?></div>
                         <p><?= $productDetail['description'] ?></p>
                         <div class="product__details__quantity">
-                            <div class="quantity">
+                            <form action="?url=cart&act=addToCart" method="post">
+                                <input type="hidden" name="id" value="<?= $productDetail['product_id'] ?>">
                                 <div class="pro-qty">
-                                    <input type="text" value="1">
+                                    <input id="" type="number" name="quantity" value="1" min="1">
                                 </div>
-                            </div>
-                        </div>
-                        <a href="?url=cart&act=addToCart&id=<?= $productDetail['product_id'] ?>" class="primary-btn">Thêm</a>
-                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                                <button type="submit" class="primary-btn">Thêm vào giỏ hàng</button>
+                            </form>
                         <ul>
                             <li><b>Availability</b> <span>In Stock</span></li>
                             <li><b>Lượt xem</b> <span><?= $productDetail['view'] ?></span></li>
@@ -107,9 +106,11 @@
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="admin/upload/AnhNhanBan/product/<?= $item['image'] ?>">
                             <ul class="product__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                <form action="?url=cart&act=addToCart" method="post">
+                                    <input type="hidden" name="id" value="<?= $item['product_id'] ?>">
+                                    <input type="hidden" name="quantity" value="1">
+                                    <button type="submit" class="primary-btn">Thêm vào giỏ hàng</button>
+                                </form>
                             </ul>
                         </div>
                         <div class="product__item__text">
