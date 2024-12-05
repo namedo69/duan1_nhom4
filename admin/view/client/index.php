@@ -42,7 +42,15 @@ include_once("./view/layouts/header.php");
                                     <td><?= $value['password'] ?></td>
                                     <td><?= $value['name'] ?></td>
                                     <td><?= $value['email'] ?></td>
-                                    <td><img src="<?= $base_url . 'upload/AnhNhanBan/client/'. $value['image'] ?>" width="150px" alt="<?= $value['name'] ?>"></td>
+                                    <td><img src="<?php 
+if ($value['image'] == 'avatarDefault.jpg') {
+    // Nếu image là avatarDefault.jpg
+    echo 'upload/AnhGoc/client/avatarDefault.jpg';
+} else {
+    // Nếu image không phải là avatarDefault.jpg
+    echo 'upload/AnhNhanBan/client/' . $value['image'];
+}
+?>" width="150px" alt="<?= $value['name'] ?>"></td>
                                     <td><?= $value['role'] == 0 ? 'Admin' : 'User'; ?></td>
 
                                     <td>

@@ -49,7 +49,16 @@ include_once("./view/layouts/header.php");
                         <div class="mb-3">
                             <label for="image" class="form-label">Avata</label>
                             <div>
-                                <img src="<?= $base_url . 'upload/AnhNhanBan/client/'.$clientInfor['image'] ?>" width="150px" alt="Avatar">
+                                <img src="<?php 
+if ($clientInfor['image'] == 'avatarDefault.jpg') {
+    // Nếu image là avatarDefault.jpg
+    echo 'upload/AnhGoc/client/avatarDefault.jpg';
+} else {
+    // Nếu image không phải là avatarDefault.jpg
+    echo 'upload/AnhNhanBan/client/' . $clientInfor['image'];
+}
+?>
+" width="150px" alt="Avatar">
                             </div>
                             <input type="file" class="form-control" name="image" id="image">
                         </div>

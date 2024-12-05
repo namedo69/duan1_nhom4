@@ -23,6 +23,7 @@ if (!isset($_POST['edit']) && isset($_GET['id'])) {
        unlink($filePath . $clientInfor['image']);
 
     }
+
     editClient($id,$username, $password, $name, $email,$role ,$fileName);
     $script = "<script> 
     alert('Sửa thông tin người dùng thành công!');
