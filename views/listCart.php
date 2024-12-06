@@ -6,10 +6,10 @@
                     <table>
                         <thead>
                             <tr>
-                                <th class="shoping__product">Products</th>
-                                <th>Price</th>
-                                <th>Quantity</th>
-                                <th>Total</th>
+                                <th class="shoping__product">Sản phẩm</th>
+                                <th>Giá</th>
+                                <th>Số lượng</th>
+                                <th>Tổng cộng</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -44,18 +44,18 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="shoping__cart__btns">
-                    <a href="http://localhost/duan1_nhom4/index.php?url=product&act=listAll" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
-                    <a href="#" class="primary-btn cart-btn cart-btn-right" id="update-cart-btn"><span class="icon_loading"></span> Update Cart</a>
+                    <a href="http://localhost/duan1_nhom4/index.php?url=product&act=listAll" class="primary-btn cart-btn">TIẾP TỤC MUA SẮM</a>
+
                 </div>
             </div>
             <div class="col-lg-6"></div>
             <div class="col-lg-6">
                 <div class="shoping__checkout">
-                    <h5>Cart Total</h5>
+                    <h5>Tổng giỏ hàng</h5>
                     <ul>
-                        <li>Giá trị đơn <span id="cart-subtotal"><?= number_format($tongTien) ?> VND</span></li>
-                        <li>Phí ship <span>20.000 VND</span></li>
-                        <li>Tổng tiền <span id="cart-total"><?= number_format($tongTien + 20000) ?> VND</span></li>
+                        <li>Giá trị đơn hàng <span id="cart-subtotal"><?= number_format($tongTien) ?> VND</span></li>
+                        <li>Phí vận chuyển <span>20.000 VND</span></li>
+                        <li>Tổng cộng <span id="cart-total"><?= number_format($tongTien + 20000) ?> VND</span></li>
                     </ul>
                     <a href="?url=cart&act=checkout" class="primary-btn">Thanh toán</a>
                 </div>
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
             subtotal += parseFloat(item.getAttribute('data-total'));
         });
 
-        const shippingFee = 20000;
+        const shippingFee = 20000; // Phí ship cố định
         const total = subtotal + shippingFee;
 
         // Cập nhật lại giá trị tổng với dấu phẩy cho VND
@@ -114,21 +114,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log('Giỏ hàng đã được cập nhật.');
             }
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => console.error('Lỗi:', error));
     }
 });
-
 </script>
+
 <style>
     .quantity-input {
-    border: none;            /* Loại bỏ viền */
-    outline: none;           /* Loại bỏ outline khi focus */
-    box-shadow: none;        /* Loại bỏ bóng (shadow) */
-    padding: 5px;            /* Thêm khoảng cách bên trong nếu cần */
-    font-size: 18px;         /* Tăng kích thước chữ */
-    font-weight: bold;       /* Làm chữ đậm */
-    width: 30%;             /* Điều chỉnh chiều rộng của input nếu cần */
-    text-align: center;      /* Căn giữa nếu muốn */
-}
-
+        border: none;            /* Loại bỏ viền */
+        outline: none;           /* Loại bỏ outline khi focus */
+        box-shadow: none;        /* Loại bỏ bóng (shadow) */
+        padding: 5px;            /* Thêm khoảng cách bên trong nếu cần */
+        font-size: 18px;         /* Tăng kích thước chữ */
+        font-weight: bold;       /* Làm chữ đậm */
+        width: 30%;              /* Điều chỉnh chiều rộng của input nếu cần */
+        text-align: center;      /* Căn giữa nếu muốn */
+    }
 </style>

@@ -6,11 +6,11 @@
         </div>
     <?php } unset($_SESSION['error']) ?>
     <div class="mb-3">
-        <label for="username" class="form-label">Username</label>
+        <label for="username" class="form-label">Tên người dùng</label>
         <input type="text" class="form-control" name="username" required>
     </div>
     <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
+        <label for="password" class="form-label">Mật khẩu</label>
         <input type="password" class="form-control" name="password" required>
     </div>
     <div class="text-center">
@@ -34,4 +34,3 @@
         </div>
     </div>
 </form>
-
