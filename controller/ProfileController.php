@@ -24,6 +24,7 @@ if (isset($_GET['act'])){
                 include_once 'views/layout/header.php';
                 include_once 'views/profile.php';
                 include_once 'views/layout/footer.php';
+                break;
            
             case 'billdetail':
                 if (isset($_GET['id'])) {
@@ -52,6 +53,7 @@ if (isset($_GET['act'])){
                 include_once 'views/layout/header.php';
                 include_once 'views/billdetail.php';
                 include_once 'views/layout/footer.php';
+                break;
             }
 
             case 'edit':
@@ -76,6 +78,7 @@ if (isset($_GET['act'])){
                     include_once 'views/layout/header.php';
                     include_once 'views/profile.php';
                     include_once 'views/layout/footer.php';
+                    break;
                 } else {
                     if ($_GET['url'] == 'profile' && $_GET['act'] == 'edit') {
                         if (isset($_POST['update'])) {
@@ -126,6 +129,7 @@ if (isset($_GET['act'])){
                     include_once 'views/layout/header.php';
                     include_once 'views/editprofile.php';
                     include_once 'views/layout/footer.php';
+                    break;
                 }
                
     }

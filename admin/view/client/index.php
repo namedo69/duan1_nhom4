@@ -22,14 +22,14 @@ include_once("./view/layouts/header.php");
                     <table class="table table-striped" id="table1">
                         <thead>
                             <tr>
-                                <th class="col-2">ID</th>
-                                <th class="col-2">User name</th>
-                                <th class="col-2">Pass word</th>
-                                <th class="col-2">Name</th>
+                                <th class="col-1">ID</th>
+                                <th class="col-3">Tên người dùng</th>
+                                <th class="col-2">Mật khẩu</th>
+                                <th class="col-2">Họ và tên</th>
                                 <th class="col-2">Email</th>
-                                <th class="col-2">Avata</th>
-                                <th class="col-2">Role</th>
-                                <th class="col-2">Action</th>
+                                <th class="col-2">Ảnh đại diện</th>
+                                <th class="col-2">Vai trò</th>
+                                <th class="col-2">Hành động</th>
                             </tr>
                         </thead>
                         <tbody>
