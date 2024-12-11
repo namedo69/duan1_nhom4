@@ -30,22 +30,40 @@ include_once("./view/layouts/header.php");
                     <table class="table table-striped" id="table1">
                         <thead>
                             <tr>
-                                <th class="col-2">Comment_id</th>
-                                <th class="col-2">Product_id</th>
-                                <th class="col-2">Client_id</th>
+                                <th class="col-2">ID</th>
+                                <th class="col-2">Sản phẩm</th>
+                                <th class="col-2">Người dùng</th>
                                 <th class="col-2">Content</th>
                                 <th class="col-2">Time</th>
                                 <th class="col-2">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php
-                            foreach ($listComment as $key => $value) {
-                                ?>
+                        <?php
+                                    foreach ($listComment as $key => $value) {
+                                        
+                                        foreach ($listClient as $item) {
+                                           
+                                            if ($value['client_id'] == $item['client_id']) {
+                                               
+                                                $tennguoidung = $item['username'];
+                                                break; 
+                                            }
+                                        }
+
+                                        foreach ($listSanPham as $item) {
+                                           
+                                            if ($value['product_id'] == $item['product_id']) {
+                                               
+                                                $tensanpham = $item['name'];
+                                                break; 
+                                            }
+                                        }
+                                    ?>
                                 <tr>
                                     <td><?= $value['comment_id'] ?></td>
-                                    <td><?= $value['product_id'] ?></td>
-                                    <td><?= $value['client_id'] ?></td>
+                                    <td><?= $tensanpham?></td>
+                                    <td><?= $tennguoidung ?></td>
                                     <td><?= $value['content'] ?></td>
                                     <td><?= $value['time'] ?></td>
                                     <td>

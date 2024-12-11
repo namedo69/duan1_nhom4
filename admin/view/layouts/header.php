@@ -72,7 +72,7 @@ if (isset($_SESSION['admin'])){
                         <li class="sidebar-item <?php echo $currentAction === '' ? 'active' : ''; ?>">
                             <a href="http://localhost/duan1_nhom4/admin/" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
-                                <span>Dashboard</span>
+                                <span>Thống kê</span>
                             </a>
                         </li>
 
@@ -84,7 +84,7 @@ if ($currentAction === 'listdanhmuc' || $currentAction === 'adddanhmuc' || $curr
 }
 ?>">
                             <a href="index.php?action=listdanhmuc" class='sidebar-link'>
-                                <i class="bi bi-file-earmark-spreadsheet-fill"></i>
+                                <i class="bi bi-file-earmark-text-fill"></i>
                                 <span>Danh mục</span>
                             </a>
                         </li>
@@ -97,21 +97,21 @@ if ($currentAction === 'listsanpham' || $currentAction === 'addsanpham' || $curr
 }
 ?>">
                             <a href="index.php?action=listsanpham" class='sidebar-link'>
-                                <i class="bi bi-file-earmark-spreadsheet-fill"></i>
+                                <i class="bi bi-file-earmark-word-fill"></i>
                                 <span>Sản phẩm</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item <?php echo $currentAction === 'listcomment' ? 'active' : ''; ?>">
                             <a href="index.php?action=listcomment" class='sidebar-link'>
-                                <i class="bi bi-file-earmark-spreadsheet-fill"></i>
+                                <i class="bi bi-file-earmark-x-fill"></i>
                                 <span>Bình luận</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item <?php echo $currentAction === 'listhoadon' ? 'active' : ''; ?>">
                             <a href="index.php?action=listhoadon" class='sidebar-link'>
-                                <i class="bi bi-file-earmark-spreadsheet-fill"></i>
+                                <i class="bi bi-file-earmark-slides-fill"></i>
                                 <span>Hoá đơn</span>
                             </a>
                         </li>
